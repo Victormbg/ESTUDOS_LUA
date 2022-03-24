@@ -1,9 +1,9 @@
 function Somar(Num1, Num2)
-	return Num1 + Num2;
-end;
+    return Num1 + Num2;
+end
 function Subtrair(Num1, Num2)
-	return Num1 - Num2;
-end;
+    return Num1 - Num2;
+end
 print("---CALCULADORA EM LUA---");
 io.write("Digite o primeiro valor: ");
 Num1 = io.read("n");
