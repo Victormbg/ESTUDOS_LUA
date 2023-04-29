@@ -34,29 +34,29 @@ RUN luarocks install http
 RUN apt-get update && apt-get install -y lua-cjson
 
 # Instala o pacote luacrypto
-RUN sudo luarocks install luacrypto
+RUN luarocks install luacrypto
 
 # Instala o pacote lua-cjson
-RUN sudo luarocks install lua-cjson
+RUN luarocks install lua-cjson
 
 # Instala o pacote lua-async
-RUN sudo luarocks install lua-async
+RUN luarocks install lua-async
 
 # Instala o pacote cjson-safe
-RUN sudo luarocks install cjson-safe
+RUN luarocks install cjson-safe
 
 # Instala as dependências do Lapis
-RUN sudo luarocks install lapis && \
-    sudo luarocks install moonscript && \
-    sudo luarocks install bcrypt && \
-    sudo luarocks install luasec && \
-    sudo luarocks install lua-term && \
-    sudo luarocks install lua-cjson && \
-    sudo luarocks install dkjson && \
-    sudo luarocks install lua-crypto && \
-    sudo luarocks install lapis-console && \
-    sudo luarocks install inspect && \
-    sudo luarocks install penlight && \
+RUN luarocks install lapis && \
+    luarocks install moonscript && \
+    luarocks install bcrypt && \
+    luarocks install luasec && \
+    luarocks install lua-term && \
+    luarocks install lua-cjson && \
+    luarocks install dkjson && \
+    luarocks install lua-crypto && \
+    luarocks install lapis-console && \
+    luarocks install inspect && \
+    luarocks install penlight && \
     rm -rf /var/lib/apt/lists/*
     
 # Define o diretório que será usado como volume
