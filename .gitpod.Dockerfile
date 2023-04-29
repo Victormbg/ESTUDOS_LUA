@@ -22,10 +22,14 @@ RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     make install && \
     cd .. && \
     rm -rf lua-5.4.4
-
-# Instala o luarocks, git e nano
-RUN apt-get update && apt-get -y install luarocks git nano libssl-dev && \
-    rm -rf /var/lib/apt/lists/*
+    
+# Instala o luarocks=3.9.2-1
+RUN set -ex \
+    && wget -qO - https://luarocks.github.io/luarocks/releases/luarocks-keyring.gpg | apt-key add - \
+    && echo "deb http://packages.ubuntu.com/hirsute/ports/powerpc/ubuntu universe" >> /etc/apt/sources.list.d/luarocks.list \
+    && apt-get update \
+    && apt-get -y install luarocks=3.9.2-1 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Instala as dependências do http
 RUN luarocks install http
