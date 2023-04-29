@@ -24,7 +24,7 @@ RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     rm -rf lua-5.4.4
 
 # Instala o luarocks, git e nano
-RUN apt-get update && apt-get -y install luarocks git nano && \
+RUN apt-get update && apt-get -y install luarocks git nano libssl-dev && \
     rm -rf /var/lib/apt/lists/*
     
 # Instala as dependências do http
