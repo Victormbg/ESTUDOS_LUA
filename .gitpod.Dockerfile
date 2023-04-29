@@ -25,7 +25,7 @@ RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     
 # Instala o luarocks=3.9.2-1
 RUN set -ex \
-    && curl -s https://luarocks.github.io/luarocks/releases/luarocks-keyring.gpg | apt-key add -
+    && curl -s https://luarocks.github.io/luarocks/releases/luarocks-keyring.gpg | apt-key add - \
     && echo "deb http://packages.ubuntu.com/hirsute/ports/powerpc/ubuntu universe" >> /etc/apt/sources.list.d/luarocks.list \
     && apt-get update \
     && apt-get -y install luarocks=3.9.2-1 \
