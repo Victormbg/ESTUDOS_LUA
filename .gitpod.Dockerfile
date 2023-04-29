@@ -26,9 +26,12 @@ RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
 # Instala o luarocks, git e nano
 RUN apt-get update && apt-get -y install luarocks git nano && \
     rm -rf /var/lib/apt/lists/*
+    
+# Instala as dependências do http
+RUN luarocks install http
 
 # Instala as dependências do Lapis
-RUN luarocks install http lua-cjson lapis && \
+RUN luarocks install lua-cjson lapis && \
     rm -rf /var/lib/apt/lists/*
 
 # Define o diretório que será usado como volume
