@@ -35,14 +35,18 @@ RUN curl -R -O https://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.g
     cd .. && \
     rm -rf luarocks-3.9.2
 
+# Instala o OpenSSL
+RUN apt-get install -y libssl-dev
+
+# Define as variáveis de ambiente necessárias para a instalação das dependências
+ENV CRYPTO_DIR=/usr/lib/
+ENV CRYPTO_INCDIR=/usr/include/
+
 # Instala as dependências do http
 RUN luarocks install http
 
 # Atualiza o cache dos pacotes e instala o pacote lua-cjson
 RUN apt-get update && apt-get install -y lua-cjson
-
-# Instala o OpenSSL
-RUN apt-get update && apt-get install -y libssl-dev
 
 # Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima
 # RUN luarocks install luacrypto 0.3.2-1 OPENSSL_DIR=/usr
