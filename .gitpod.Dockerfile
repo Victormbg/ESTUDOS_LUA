@@ -1,12 +1,11 @@
-FROM gitpod/workspace-full
+FROM ubuntu:20.04
 
-USER gitpod
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get install -y lua5.4 luarocks git nano && \
+    luarocks install http lua-cjson lapis && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt-get -q update \
-    && sudo apt-get install -yq \
-    lua5.4 \
-    && sudo apt-get install -yq \
-    luarocks \
-    && sudo luarocks install http \
-    && sudo luarocks install lua-cjson \
-    && sudo rm -rf /var/lib/apt/lists/*
+VOLUME ["/workspace"]
+
+CMD ["lapis", "server"]
