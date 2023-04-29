@@ -30,8 +30,12 @@ RUN apt-get update && apt-get -y install luarocks git nano libssl-dev && \
 # Instala as dependências do http
 RUN luarocks install http
 
+RUN apt-get update && apt-get install -y lua-cjson
+
 # Instala as dependências do Lapis
 RUN luarocks install lua-cjson lapis && \
+    luarocks install lua-async && \
+    luarocks install cjson-safe && \
     rm -rf /var/lib/apt/lists/*
 
 # Define o diretório que será usado como volume
