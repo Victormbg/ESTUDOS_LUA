@@ -35,8 +35,8 @@ RUN curl -R -O https://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.g
     cd .. && \
     rm -rf luarocks-3.9.2
 
-# Instala o OpenSSL
-RUN apt-get update && apt-get install -y libssl-dev
+Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
+RUN apt-get update && apt-get install -y libssl-dev m4
 
 # Define as variáveis de ambiente necessárias para a instalação das dependências
 ENV CRYPTO_DIR=/usr/lib/
