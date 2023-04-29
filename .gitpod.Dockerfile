@@ -54,8 +54,9 @@ RUN apt-get update && apt-get install -y lua-cjson
 # Instala o pacote lua-cjson
 RUN luarocks install lua-cjson
 
-# Instala o pacote lua-async
-# RUN luarocks install lua-async
+# Instala o pacote lua-async para permitir programação assíncrona no Lua. Se a instalação falhar, tente adicionar --lua-version=5.4 no final do comando.
+RUN luarocks search lua-async --lua-version=5.4 && \
+    luarocks install lua-async --lua-version=5.4
 
 # Instala o framework web Lapis
 RUN luarocks install lapis
@@ -75,8 +76,9 @@ RUN luarocks install lua-term
 # Instala o pacote dkjson, para a manipulação de arquivos JSON
 RUN luarocks install dkjson
 
-# Instala o pacote lapis-migrate, para gerenciamento de migrações de banco de dados no Lapis.
-RUN luarocks install lapis-migrate
+# Instala o pacote lapis-migrate para gerenciamento de migrações de banco de dados no Lapis, se disponível para a versão 5.4 do Lua
+RUN luarocks search lapis-migrate --lua-version=5.4 && \
+    luarocks install lapis-migrate --lua-version=5.4
 
 # Instala o pacote inspect, para inspecionar e manipular objetos em Lua
 RUN luarocks install inspect
