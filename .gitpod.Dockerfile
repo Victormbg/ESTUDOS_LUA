@@ -33,8 +33,12 @@ RUN luarocks install http
 # Atualiza o cache dos pacotes e instala o pacote lua-cjson
 RUN apt-get update && apt-get install -y lua-cjson
 
-# Instala o pacote luacrypto
-RUN luarocks install luacrypto
+# Instala a versão mais recente do OpenSSL
+RUN apt-get update && \
+    apt-get install -y openssl
+
+# Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima
+RUN luarocks install luacrypto OPENSSL_DIR=/usr/lib/ssl
 
 # Instala o pacote lua-cjson
 RUN luarocks install lua-cjson
