@@ -43,7 +43,7 @@ RUN apt-get update && apt-get install -y libssl-dev
 RUN luarocks install lua-cjson
 
 # Instala o pacote lua-async
-RUN luarocks install lua-async
+# RUN luarocks install lua-async
 
 # Instala o pacote cjson-safe
 RUN luarocks install cjson-safe
