@@ -33,7 +33,8 @@ RUN luarocks install http
 RUN apt-get update && apt-get install -y lua-cjson
 
 # Instala as dependências do Lapis
-RUN luarocks install lua-cjson lapis && \
+RUN luarocks install luacrypto && \
+    luarocks install lua-cjson && \
     luarocks install lua-async && \
     luarocks install cjson-safe && \
     rm -rf /var/lib/apt/lists/*
