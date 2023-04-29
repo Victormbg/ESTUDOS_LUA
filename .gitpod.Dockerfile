@@ -26,19 +26,39 @@ RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
 # Instala o luarocks, git e nano
 RUN apt-get update && apt-get -y install luarocks git nano libssl-dev && \
     rm -rf /var/lib/apt/lists/*
-    
+
 # Instala as dependências do http
 RUN luarocks install http
 
+# Atualiza o cache dos pacotes e instala o pacote lua-cjson
 RUN apt-get update && apt-get install -y lua-cjson
 
-# Instala as dependências do Lapis
-RUN sudo luarocks install luacrypto && \
-    sudo luarocks install lua-cjson && \
-    sudo luarocks install lua-async && \
-    sudo luarocks install cjson-safe && \
-    rm -rf /var/lib/apt/lists/*
+# Instala o pacote luacrypto
+RUN sudo luarocks install luacrypto
 
+# Instala o pacote lua-cjson
+RUN sudo luarocks install lua-cjson
+
+# Instala o pacote lua-async
+RUN sudo luarocks install lua-async
+
+# Instala o pacote cjson-safe
+RUN sudo luarocks install cjson-safe
+
+# Instala as dependências do Lapis
+RUN sudo luarocks install lapis && \
+    sudo luarocks install moonscript && \
+    sudo luarocks install bcrypt && \
+    sudo luarocks install luasec && \
+    sudo luarocks install lua-term && \
+    sudo luarocks install lua-cjson && \
+    sudo luarocks install dkjson && \
+    sudo luarocks install lua-crypto && \
+    sudo luarocks install lapis-console && \
+    sudo luarocks install inspect && \
+    sudo luarocks install penlight && \
+    rm -rf /var/lib/apt/lists/*
+    
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
 
