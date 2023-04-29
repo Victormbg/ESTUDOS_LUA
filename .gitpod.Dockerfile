@@ -45,9 +45,6 @@ RUN luarocks install lua-cjson
 # Instala o pacote lua-async
 # RUN luarocks install lua-async
 
-# Instala o pacote cjson-safe
-RUN luarocks install cjson-safe
-
 # Instala as dependências do Lapis
 RUN luarocks install lapis && \
     luarocks install moonscript && \
