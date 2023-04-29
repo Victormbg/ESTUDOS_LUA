@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install build-essential curl && \
+    apt-get -y install build-essential curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
 # Baixa o arquivo do Lua e descompacta-o
