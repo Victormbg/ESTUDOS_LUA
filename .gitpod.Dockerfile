@@ -7,4 +7,7 @@ RUN sudo apt-get -q update \
     lua5.4 \
     && sudo apt-get install -yq \
     luarocks \
+    && sudo luarocks install http \
+    && sudo luarocks install lua-cjson \
+    && sudo luarocks install lua-async \
     && sudo rm -rf /var/lib/apt/lists/*
