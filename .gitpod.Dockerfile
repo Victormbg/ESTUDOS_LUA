@@ -10,7 +10,7 @@ RUN \
   # Adiciona o repositório PPA do Lua 5.4
   add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
   # Atualiza o cache novamente com o novo repositório adicionado e instala o Lua 5.4, luarocks, git e nano
-  apt-get update && apt-get -y install lua5.4 luarocks git nano && \
+  apt-get update && apt-get -y install lua5.3 luarocks git nano && \
   # Instala as dependências do Lapis usando o luarocks
   luarocks install http lua-cjson lapis && \
   # Remove o cache dos pacotes instalados para reduzir o tamanho final da imagem
