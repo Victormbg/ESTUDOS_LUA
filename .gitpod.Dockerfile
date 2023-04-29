@@ -75,8 +75,8 @@ RUN luarocks install lua-term
 # Instala o pacote dkjson, para a manipulação de arquivos JSON
 RUN luarocks install dkjson
 
-# Instala o pacote lapis-console, uma interface web para execução de código Lapis
-RUN luarocks install lapis-console
+# Instala o pacote lapis-migrate, para gerenciamento de migrações de banco de dados no Lapis.
+RUN luarocks install lapis-migrate
 
 # Instala o pacote inspect, para inspecionar e manipular objetos em Lua
 RUN luarocks install inspect
