@@ -1,6 +1,9 @@
 # Define a imagem base como Ubuntu 20.04
 FROM ubuntu:20.04
 
+# Define o timezone padrão
+ENV TZ=America/Sao_Paulo
+
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
     apt-get -y install build-essential curl && \
