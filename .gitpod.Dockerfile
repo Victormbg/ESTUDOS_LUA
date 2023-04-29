@@ -22,7 +22,7 @@ RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     make install && \
     cd .. && \
     rm -rf lua-5.4.4
-    
+
 # Instala o luarocks=3.9.2-1
 RUN set -ex \
     && curl -s https://luarocks.github.io/luarocks/releases/luarocks-keyring.gpg | apt-key add - \
