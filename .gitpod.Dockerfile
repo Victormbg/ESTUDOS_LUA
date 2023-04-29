@@ -23,13 +23,17 @@ RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     cd .. && \
     rm -rf lua-5.4.4
 
-# Instala o luarocks=3.9.2-1
-RUN set -ex \
-    && curl -s https://luarocks.github.io/luarocks/releases/luarocks-keyring.gpg | apt-key add - \
-    && echo "deb http://packages.ubuntu.com/hirsute/ports/powerpc/ubuntu universe" >> /etc/apt/sources.list.d/luarocks.list \
-    && apt-get update \
-    && apt-get -y install luarocks=3.9.2-1 \
-    && rm -rf /var/lib/apt/lists/*
+# Baixa o arquivo do luarocks e descompacta-o
+RUN curl -R -O https://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.gz && \
+    tar zxvf luarocks-3.9.2.tar.gz && \
+    rm luarocks-3.9.2.tar.gz && \
+    cd luarocks-3.9.2 && \
+    # Configura a compilação com as opções padrão
+    ./configure && \
+    make build && \
+    make install && \
+    cd .. && \
+    rm -rf luarocks-3.9.2
 
 # Instala as dependências do http
 RUN luarocks install http
