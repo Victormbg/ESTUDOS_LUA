@@ -12,6 +12,12 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-get -y install build-essential curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
+# Instala o git
+RUN apt-get update && apt-get install -y git
+
+# Define a variável PATH incluindo o caminho para o git
+ENV PATH="${PATH}:$(which git)"
+
 # Baixa o arquivo do Lua e descompacta-o
 RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     tar zxf lua-5.4.4.tar.gz && \
