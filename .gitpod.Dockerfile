@@ -48,15 +48,17 @@ RUN luarocks install http
 # Atualiza o cache dos pacotes e instala o pacote lua-cjson
 RUN apt-get update && apt-get install -y lua-cjson
 
-# Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima
-# RUN luarocks install luacrypto 0.3.2-1 OPENSSL_DIR=/usr
+# Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima. Registra erros em /var/log/luacrypto-errors.log.
+RUN luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR 2> /var/log/luacrypto-errors.log || true
 
 # Instala o pacote lua-cjson
 RUN luarocks install lua-cjson
 
-# Instala o pacote lua-async para permitir programação assíncrona no Lua. Se a instalação falhar, tente adicionar --lua-version=5.4 no final do comando.
-RUN luarocks search lua-async --lua-version=5.4 && \
-    luarocks install lua-async --lua-version=5.4
+# Instala o pacote lua-async para permitir programação assíncrona no Lua.
+# Se a instalação falhar, o comando "true" garante que a build continue
+# e os erros serão redirecionados para um arquivo de log.
+RUN luarocks search lua-async --lua-version=5.4 2> /var/log/lua-async-errors.log || true && \
+    luarocks install lua-async --lua-version=5.4 2>> /var/log/lua-async-errors.log || true
 
 # Instala o framework web Lapis
 RUN luarocks install lapis
@@ -76,9 +78,9 @@ RUN luarocks install lua-term
 # Instala o pacote dkjson, para a manipulação de arquivos JSON
 RUN luarocks install dkjson
 
-# Instala o pacote lapis-migrate para gerenciamento de migrações de banco de dados no Lapis, se disponível para a versão 5.4 do Lua
-RUN luarocks search lapis-migrate --lua-version=5.4 && \
-    luarocks install lapis-migrate --lua-version=5.4
+# Instala o pacote lapis-migrate para gerenciamento de migrações de banco de dados no Lapis, se disponível para a versão 5.4 do Lua. Registra erros em /var/log/lapis-migrate-errors.log
+RUN luarocks search lapis-migrate --lua-version=5.4 2> /var/log/lapis-migrate-errors.log || true && \
+    luarocks install lapis-migrate --lua-version=5.4 2> /var/log/lapis-migrate-errors.log || true
 
 # Instala o pacote inspect, para inspecionar e manipular objetos em Lua
 RUN luarocks install inspect
