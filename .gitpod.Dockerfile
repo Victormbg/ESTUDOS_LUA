@@ -33,10 +33,10 @@ RUN luarocks install http
 RUN apt-get update && apt-get install -y lua-cjson
 
 # Instala as dependências do Lapis
-RUN luarocks install luacrypto && \
-    luarocks install lua-cjson && \
-    luarocks install lua-async && \
-    luarocks install cjson-safe && \
+RUN sudo luarocks install luacrypto && \
+    sudo luarocks install lua-cjson && \
+    sudo luarocks install lua-async && \
+    sudo luarocks install cjson-safe && \
     rm -rf /var/lib/apt/lists/*
 
 # Define o diretório que será usado como volume
