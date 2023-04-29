@@ -7,3 +7,4 @@ tasks:
       luarocks --version
       git --version
       nano --version
+      luarocks list
