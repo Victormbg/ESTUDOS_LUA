@@ -37,7 +37,7 @@ RUN apt-get update && apt-get install -y lua-cjson
 RUN apt-get update && apt-get install -y libssl-dev
 
 # Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima
-RUN luarocks install luacrypto 0.3.2-1 OPENSSL_DIR=/usr
+# RUN luarocks install luacrypto 0.3.2-1 OPENSSL_DIR=/usr
 
 # Instala o pacote lua-cjson
 RUN luarocks install lua-cjson
