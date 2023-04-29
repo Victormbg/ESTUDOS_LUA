@@ -45,19 +45,35 @@ RUN luarocks install lua-cjson
 # Instala o pacote lua-async
 # RUN luarocks install lua-async
 
-# Instala as dependências do Lapis
-RUN luarocks install lapis && \
-    luarocks install moonscript && \
-    luarocks install bcrypt && \
-    luarocks install luasec && \
-    luarocks install lua-term && \
-    luarocks install lua-cjson && \
-    luarocks install dkjson && \
-    luarocks install lua-crypto && \
-    luarocks install lapis-console && \
-    luarocks install inspect && \
-    luarocks install penlight && \
-    rm -rf /var/lib/apt/lists/*
+# Instala o framework web Lapis
+RUN luarocks install lapis
+
+# Instala a linguagem de programação MoonScript, utilizada pelo Lapis
+RUN luarocks install moonscript
+
+# Instala o pacote bcrypt, para a criptografia de senhas
+RUN luarocks install bcrypt
+
+# Instala o pacote luasec, para conexões HTTPS
+RUN luarocks install luasec
+
+# Instala o pacote lua-term, para trabalhar com terminais
+RUN luarocks install lua-term
+
+# Instala o pacote dkjson, para a manipulação de arquivos JSON
+RUN luarocks install dkjson
+
+# Instala o pacote lapis-console, uma interface web para execução de código Lapis
+RUN luarocks install lapis-console
+
+# Instala o pacote inspect, para inspecionar e manipular objetos em Lua
+RUN luarocks install inspect
+
+# Instala o pacote penlight, uma biblioteca utilitária para Lua
+RUN luarocks install penlight
+
+# Remove arquivos desnecessários do sistema
+RUN rm -rf /var/lib/apt/lists/*
     
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
