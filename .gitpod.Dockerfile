@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install build-essential curl unzip && \
+    apt-get -y install build-essential wget unzip && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala o git
@@ -18,20 +18,16 @@ RUN apt-get update && apt-get install -y git
 # Define a variável PATH incluindo o caminho para o git
 ENV PATH="${PATH}:$(which git)"
 
-# Baixa o Lua 5.3
-RUN apt-get install lua5.3
-
-# Baixa o arquivo do luarocks e descompacta-o
-RUN curl -R -O https://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.gz && \
-    tar zxvf luarocks-3.9.2.tar.gz && \
-    rm luarocks-3.9.2.tar.gz && \
-    cd luarocks-3.9.2 && \
-    # Configura a compilação com as opções padrão
-    ./configure && \
-    make build && \
+RUN apt-get update && \
+    apt-get install -y lua5.3 lua5.3-dev && \
+    wget https://luarocks.github.io/luarocks/releases/luarocks-3.4.0.tar.gz && \
+    tar zxpf luarocks-3.4.0.tar.gz && \
+    cd luarocks-3.4.0 && \
+    ./configure --with-lua-include=/usr/include/lua5.3 && \
+    make && \
     make install && \
     cd .. && \
-    rm -rf luarocks-3.9.2
+    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
