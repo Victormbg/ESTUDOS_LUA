@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install build-essential wget unzip && \
+    apt-get -y install build-essential wget unzip libreadline-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala o git
