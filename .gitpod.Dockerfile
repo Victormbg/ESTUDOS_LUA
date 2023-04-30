@@ -53,7 +53,7 @@ RUN apt-get update && \
     # sai do diretório luarocks-3.4.0
     cd .. && \
     # remove o arquivo tar.gz e o diretório luarocks-3.4.0
-    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0 && \
+    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0
 
 # Remove pacotes desnecessários instalados anteriormente
 RUN apt-get remove -y build-essential wget unzip libreadline-dev wget && \
