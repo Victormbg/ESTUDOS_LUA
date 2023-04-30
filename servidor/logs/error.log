@@ -1,0 +1,458 @@
+2023/04/30 06:24:55 [emerg] 591#591: open() "/workspace/Projetos-com-LUA/servidor/mime.types" failed (2: No such file or directory) in /workspace/Projetos-com-LUA/servidor/nginx.conf.compiled:9
+2023/04/30 06:26:28 [emerg] 658#658: unknown directive "text/html" in /workspace/Projetos-com-LUA/servidor/mime.types:1
+2023/04/30 06:26:43 [emerg] 675#675: unknown directive "text/html" in /workspace/Projetos-com-LUA/servidor/mime.types:1
+2023/04/30 06:27:51 [emerg] 703#703: bind() to 0.0.0.0:80 failed (13: Permission denied)
+2023/04/30 06:28:54 [error] 734#734: *1 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /?vscodeBrowserReqId=1682846933948 HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://186db0qpkhsrj6dg5hbg6ndn6rhqk99g4ji54b81cd79e49tnvf7.ws-us96b.gitpod.io/eu.gcr.io/gitpod-core-dev/build/ide/code:commit-5999c87e5c9bed5dcb7397820ef95b89ace55dab/__files__/out/vs/workbench/contrib/webview/browser/pre/index.html?id=b0d5026c-8885-4b3c-86dc-8030d4315c57&origin=924583b7-1792-4b80-96d1-bef987e46936&swVersion=4&extensionId=vscode.simple-browser&platform=browser&vscode-resource-base-authority=vscode-resource.gitpod.io&parentOrigin=https%3A%2F%2Fvictormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io&remoteAuthority=victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io"
+2023/04/30 06:29:08 [error] 734#734: *2 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /?vscodeBrowserReqId=1682846948046 HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://186db0qpkhsrj6dg5hbg6ndn6rhqk99g4ji54b81cd79e49tnvf7.ws-us96b.gitpod.io/eu.gcr.io/gitpod-core-dev/build/ide/code:commit-5999c87e5c9bed5dcb7397820ef95b89ace55dab/__files__/out/vs/workbench/contrib/webview/browser/pre/index.html?id=b0d5026c-8885-4b3c-86dc-8030d4315c57&origin=924583b7-1792-4b80-96d1-bef987e46936&swVersion=4&extensionId=vscode.simple-browser&platform=browser&vscode-resource-base-authority=vscode-resource.gitpod.io&parentOrigin=https%3A%2F%2Fvictormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io&remoteAuthority=victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io"
+2023/04/30 06:29:15 [error] 734#734: *3 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /?vscodeBrowserReqId=1682846955097 HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://186db0qpkhsrj6dg5hbg6ndn6rhqk99g4ji54b81cd79e49tnvf7.ws-us96b.gitpod.io/eu.gcr.io/gitpod-core-dev/build/ide/code:commit-5999c87e5c9bed5dcb7397820ef95b89ace55dab/__files__/out/vs/workbench/contrib/webview/browser/pre/index.html?id=b0d5026c-8885-4b3c-86dc-8030d4315c57&origin=924583b7-1792-4b80-96d1-bef987e46936&swVersion=4&extensionId=vscode.simple-browser&platform=browser&vscode-resource-base-authority=vscode-resource.gitpod.io&parentOrigin=https%3A%2F%2Fvictormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io&remoteAuthority=victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io"
+2023/04/30 06:29:41 [emerg] 802#802: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:29:41 [emerg] 802#802: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:29:41 [emerg] 802#802: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:29:41 [emerg] 802#802: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:29:41 [emerg] 802#802: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:29:41 [emerg] 802#802: still could not bind()
+2023/04/30 06:29:46 [error] 734#734: *4 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /?vscodeBrowserReqId=1682846985900 HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://186db0qpkhsrj6dg5hbg6ndn6rhqk99g4ji54b81cd79e49tnvf7.ws-us96b.gitpod.io/eu.gcr.io/gitpod-core-dev/build/ide/code:commit-5999c87e5c9bed5dcb7397820ef95b89ace55dab/__files__/out/vs/workbench/contrib/webview/browser/pre/index.html?id=b0d5026c-8885-4b3c-86dc-8030d4315c57&origin=924583b7-1792-4b80-96d1-bef987e46936&swVersion=4&extensionId=vscode.simple-browser&platform=browser&vscode-resource-base-authority=vscode-resource.gitpod.io&parentOrigin=https%3A%2F%2Fvictormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io&remoteAuthority=victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io"
+2023/04/30 06:29:47 [error] 734#734: *5 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /?vscodeBrowserReqId=1682846987161 HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://186db0qpkhsrj6dg5hbg6ndn6rhqk99g4ji54b81cd79e49tnvf7.ws-us96b.gitpod.io/eu.gcr.io/gitpod-core-dev/build/ide/code:commit-5999c87e5c9bed5dcb7397820ef95b89ace55dab/__files__/out/vs/workbench/contrib/webview/browser/pre/index.html?id=b0d5026c-8885-4b3c-86dc-8030d4315c57&origin=924583b7-1792-4b80-96d1-bef987e46936&swVersion=4&extensionId=vscode.simple-browser&platform=browser&vscode-resource-base-authority=vscode-resource.gitpod.io&parentOrigin=https%3A%2F%2Fvictormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io&remoteAuthority=victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io"
+2023/04/30 06:29:47 [error] 734#734: *6 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /?vscodeBrowserReqId=1682846987334 HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://186db0qpkhsrj6dg5hbg6ndn6rhqk99g4ji54b81cd79e49tnvf7.ws-us96b.gitpod.io/eu.gcr.io/gitpod-core-dev/build/ide/code:commit-5999c87e5c9bed5dcb7397820ef95b89ace55dab/__files__/out/vs/workbench/contrib/webview/browser/pre/index.html?id=b0d5026c-8885-4b3c-86dc-8030d4315c57&origin=924583b7-1792-4b80-96d1-bef987e46936&swVersion=4&extensionId=vscode.simple-browser&platform=browser&vscode-resource-base-authority=vscode-resource.gitpod.io&parentOrigin=https%3A%2F%2Fvictormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io&remoteAuthority=victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io"
+2023/04/30 06:30:27 [error] 734#734: *7 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET / HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:30:28 [error] 734#734: *8 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:30:36 [error] 734#734: *9 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET / HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:30:36 [error] 734#734: *10 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:30:42 [error] 734#734: *11 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET / HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:30:42 [error] 734#734: *12 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:31:09 [error] 734#734: *13 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET / HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:31:09 [error] 734#734: *14 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:32:34 [emerg] 885#885: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:32:34 [emerg] 885#885: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:32:34 [emerg] 885#885: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:32:34 [emerg] 885#885: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:32:34 [emerg] 885#885: bind() to 0.0.0.0:1024 failed (98: Address already in use)
+2023/04/30 06:32:34 [emerg] 885#885: still could not bind()
+2023/04/30 06:32:50 [error] 734#734: *15 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET / HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:32:50 [error] 734#734: *16 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io/"
+2023/04/30 06:35:33 [error] 734#734: *17 lua entry thread aborted: runtime error: content_by_lua(nginx.conf.compiled:20):2: module 'lapis' not found:
+	no field package.preload['lapis']
+	no file '/usr/local/openresty/site/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/lualib/lapis.ljbc'
+	no file '/usr/local/openresty/lualib/lapis/init.ljbc'
+	no file '/usr/local/openresty/site/lualib/lapis.lua'
+	no file '/usr/local/openresty/site/lualib/lapis/init.lua'
+	no file '/usr/local/openresty/lualib/lapis.lua'
+	no file '/usr/local/openresty/lualib/lapis/init.lua'
+	no file './lapis.lua'
+	no file '/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis.lua'
+	no file '/usr/local/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis.lua'
+	no file '/usr/local/openresty/luajit/share/lua/5.1/lapis/init.lua'
+	no file '/usr/local/openresty/site/lualib/lapis.so'
+	no file '/usr/local/openresty/lualib/lapis.so'
+	no file './lapis.so'
+	no file '/usr/local/lib/lua/5.1/lapis.so'
+	no file '/usr/local/openresty/luajit/lib/lua/5.1/lapis.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+coroutine 0:
+	[C]: in function 'require'
+	content_by_lua(nginx.conf.compiled:20):2: in main chunk, client: 192.168.250.72, server: localhost, request: "GET /?vscodeBrowserReqId=1682847332941 HTTP/1.1", host: "1024-victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io", referrer: "https://186db0qpkhsrj6dg5hbg6ndn6rhqk99g4ji54b81cd79e49tnvf7.ws-us96b.gitpod.io/eu.gcr.io/gitpod-core-dev/build/ide/code:commit-5999c87e5c9bed5dcb7397820ef95b89ace55dab/__files__/out/vs/workbench/contrib/webview/browser/pre/index.html?id=a1c32cea-e825-4847-b11e-6a8a88c5f6de&origin=924583b7-1792-4b80-96d1-bef987e46936&swVersion=4&extensionId=vscode.simple-browser&platform=browser&vscode-resource-base-authority=vscode-resource.gitpod.io&parentOrigin=https%3A%2F%2Fvictormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io&remoteAuthority=victormbg-projetoscomlu-2wp7stw8h7y.ws-us96b.gitpod.io"

@@ -7,6 +7,8 @@ ENV TZ=America/Sao_Paulo
 # Define a variável de ambiente DEBIAN_FRONTEND como noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
+
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
     apt-get -y install build-essential wget unzip libreadline-dev libreadline8 && \
@@ -117,6 +119,9 @@ RUN luarocks install penlight > /dev/null 2> /var/log/penlight-errors.log || tru
 
 # Instala o pacote luasocket, para conexões de rede
 RUN luarocks install luasocket > /dev/null 2> /var/log/luasocket-errors.log || true
+
+# Instala o pacote Love para desenvolvimento de jogos em Lua, utilizado pelo async
+RUN luarocks install love > /dev/null 2> /var/log/async-errors.log || true
 
 # Instala o pacote async, para suporte a programação assíncrona
 RUN luarocks install async > /dev/null 2> /var/log/async-errors.log || true
