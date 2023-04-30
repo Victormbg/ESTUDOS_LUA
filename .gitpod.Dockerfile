@@ -38,22 +38,22 @@ RUN apt-get update && \
     # remove o diretório lua-5.3.6
     rm -rf lua-5.3.6
 
-# Baixa o arquivo tar.gz do LuaRocks 3.4.0
+# Baixa o arquivo tar.gz do LuaRocks 3.9.2
 RUN apt-get update && \
-    wget https://luarocks.github.io/luarocks/releases/luarocks-3.4.0.tar.gz && \
+    wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz && \
     # extrai o conteúdo do arquivo tar.gz
-    tar zxpf luarocks-3.4.0.tar.gz && \
-    # entra no diretório luarocks-3.4.0
-    cd luarocks-3.4.0 && \
+    tar zxpf luarocks-3.9.2.tar.gz && \
+    # entra no diretório luarocks-3.9.2
+    cd luarocks-3.9.2 && \
     # configura a compilação com o diretório /usr/include/lua5.3 incluído
     ./configure --with-lua-include=/usr/include/lua5.3 && \
-    # compila e instala o LuaRocks 3.4.0
+    # compila e instala o LuaRocks 3.9.2
     make && \
     make install && \
-    # sai do diretório luarocks-3.4.0
+    # sai do diretório luarocks-3.9.2
     cd .. && \
-    # remove o arquivo tar.gz e o diretório luarocks-3.4.0
-    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0
+    # remove o arquivo tar.gz e o diretório luarocks-3.9.2
+    rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
@@ -66,10 +66,18 @@ ENV CRYPTO_INCDIR=/usr/include/
 RUN luarocks search luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR > /dev/null 2> /var/log/luacrypto-search-errors.log || true && \
     luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR > /dev/null 2> /var/log/luacrypto-install-errors.log || true
 
-# Instala o openresty e o nginx sem recomendações adicionais
 RUN apt-get update && \
+    apt-get install -y --no-install-recommends libpcre3-dev libssl-dev perl make build-essential curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Instala o openresty e o nginx sem recomendações adicionais
+RUN curl -L https://openresty.org/package/pubkey.gpg | apt-key add - && \
+    echo "deb http://openresty.org/package/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/openresty.list && \
+    apt-get update && \
     apt-get install -y --no-install-recommends openresty nginx && \
     rm -rf /var/lib/apt/lists/*
+
+ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
 
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
