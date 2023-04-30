@@ -18,27 +18,45 @@ RUN apt-get update && apt-get install -y git
 # Define a variável PATH incluindo o caminho para o git
 ENV PATH="${PATH}:$(which git)"
 
+# Instalação do Lua 5.3.6
 RUN apt-get update && \
+    # baixa o arquivo tar.gz do Lua 5.3.6
     wget https://www.lua.org/ftp/lua-5.3.6.tar.gz && \
+    # extrai o conteúdo do arquivo tar.gz
     tar -xzf lua-5.3.6.tar.gz && \
+    # remove o arquivo tar.gz
     rm lua-5.3.6.tar.gz && \
+    # entra no diretório lua-5.3.6
     cd lua-5.3.6 && \
-    make linux && \
+    # compila o Lua 5.3.6 com o diretório /usr/include/lua5.3 incluído
+    make linux MYCFLAGS=-I/usr/include/lua5.3 && \
+    # instala o Lua 5.3.6
     make install && \
+    # sai do diretório lua-5.3.6
     cd .. && \
+    # remove o diretório lua-5.3.6
     rm -rf lua-5.3.6
 
-RUN apt-get update && \
+# Baixa o arquivo tar.gz do LuaRocks 3.4.0
+RUN apt-get update &&
     wget https://luarocks.github.io/luarocks/releases/luarocks-3.4.0.tar.gz && \
+    # extrai o conteúdo do arquivo tar.gz
     tar zxpf luarocks-3.4.0.tar.gz && \
+    # entra no diretório luarocks-3.4.0
     cd luarocks-3.4.0 && \
+    # configura a compilação com o diretório /usr/include/lua5.3 incluído
     ./configure --with-lua-include=/usr/include/lua5.3 && \
+    # compila e instala o LuaRocks 3.4.0
     make && \
     make install && \
+    # sai do diretório luarocks-3.4.0
     cd .. && \
-    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0&& \
-    apt-get remove -y wget && \
-    apt-get autoremove -y 
+    # remove o arquivo tar.gz e o diretório luarocks-3.4.0
+    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0 && \
+
+# Remove pacotes desnecessários instalados anteriormente
+RUN apt-get remove -y build-essential wget unzip libreadline-dev wget && \
+    apt-get autoremove -y
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
