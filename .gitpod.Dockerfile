@@ -55,14 +55,6 @@ RUN apt-get update && \
     # remove o arquivo tar.gz e o diretório luarocks-3.4.0
     rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0
 
-# Remove pacotes desnecessários instalados anteriormente
-RUN apt-get remove -y build-essential wget unzip libreadline-dev wget && \
-    apt-get autoremove -y
-    
-# Atualiza a lista de pacotes e instala a biblioteca de desenvolvimento do readline
-RUN apt-get update && \
-    apt-get install -y libreadline-dev
-
 # Instala o pacote http do LuaRocks que será utilizado posteriormente
 RUN luarocks install http
 
@@ -124,6 +116,10 @@ RUN luarocks install luasocket 2> /var/log/luasocket-errors.log || true && \
 # Remove arquivos desnecessários do sistema
 RUN rm -rf /var/lib/apt/lists/*
 
+# Remove pacotes desnecessários instalados anteriormente
+RUN apt-get remove -y build-essential wget unzip libreadline-dev wget && \
+    apt-get autoremove -y
+    
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
 
