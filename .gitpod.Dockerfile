@@ -19,7 +19,16 @@ RUN apt-get update && apt-get install -y git
 ENV PATH="${PATH}:$(which git)"
 
 RUN apt-get update && \
-    apt-get install -y lua5.3 lua5.3-dev && \
+    wget https://www.lua.org/ftp/lua-5.3.6.tar.gz && \
+    tar -xzf lua-5.3.6.tar.gz && \
+    rm lua-5.3.6.tar.gz && \
+    cd lua-5.3.6 && \
+    make linux && \
+    make install && \
+    cd .. && \
+    rm -rf lua-5.3.6
+
+RUN apt-get update && \
     wget https://luarocks.github.io/luarocks/releases/luarocks-3.4.0.tar.gz && \
     tar zxpf luarocks-3.4.0.tar.gz && \
     cd luarocks-3.4.0 && \
@@ -27,7 +36,9 @@ RUN apt-get update && \
     make && \
     make install && \
     cd .. && \
-    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0
+    rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0&& \
+    apt-get remove -y wget && \
+    apt-get autoremove -y 
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
@@ -85,7 +96,7 @@ RUN luarocks install penlight
 
 RUN luarocks install luasocket 2> /var/log/luasocket-errors.log || true && \
     luarocks install lua-async-await 2> /var/log/lua-async-await-errors.log || true && \
-    luarocks install luapromise 2> /var/log/luapromise-errors.log || true
+    luarocks install promise-lua 2> /var/log/promise-lua-errors.log || true
 
 # Remove arquivos desnecessários do sistema
 RUN rm -rf /var/lib/apt/lists/*
