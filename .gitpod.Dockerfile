@@ -20,6 +20,7 @@ ENV PATH="${PATH}:$(which git)"
 
 # Instalação do Lua 5.3.6
 RUN apt-get update && \
+    apt-get install -y liblua5.3-dev && \
     # baixa o arquivo tar.gz do Lua 5.3.6
     wget https://www.lua.org/ftp/lua-5.3.6.tar.gz && \
     # extrai o conteúdo do arquivo tar.gz
