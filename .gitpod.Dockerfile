@@ -67,7 +67,9 @@ RUN luarocks search luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INC
     luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR > /dev/null 2> /var/log/luacrypto-install-errors.log || true
 
 # Instala o openresty e o nginx sem recomendações adicionais
-RUN apt-get install -y --no-install-recommends openresty nginx
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openresty nginx && \
+    rm -rf /var/lib/apt/lists/*
 
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
