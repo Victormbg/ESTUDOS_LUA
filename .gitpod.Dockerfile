@@ -18,16 +18,8 @@ RUN apt-get update && apt-get install -y git
 # Define a variável PATH incluindo o caminho para o git
 ENV PATH="${PATH}:$(which git)"
 
-# Baixa o arquivo do Lua e descompacta-o
-RUN curl -R -O https://www.lua.org/ftp/lua-5.3.6.tar.gz && \
-    tar zxf lua-5.3.6.tar.gz && \
-    rm lua-5.3.6.tar.gz && \
-    cd lua-5.3.6 && \
-    # Compila o Lua com as opções padrão
-    make linux MYCFLAGS=-fPIC && \
-    make install && \
-    cd .. && \
-    rm -rf lua-5.3.6
+# Baixa o Lua 5.3
+RUN apt-get install lua5.3
 
 # Baixa o arquivo do luarocks e descompacta-o
 RUN curl -R -O https://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.gz && \
