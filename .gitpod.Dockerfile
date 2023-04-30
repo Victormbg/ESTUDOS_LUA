@@ -78,7 +78,7 @@ RUN apt-get update && \
     curl -L https://openresty.org/package/pubkey.gpg | apt-key add - && \
     echo "deb http://openresty.org/package/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/openresty.list && \
     apt-get update && \
-    apt-get install -y --no-install-recommends openresty nginx && \
+    apt-get install -y --no-install-recommends openresty nginx lsof && \
     rm -rf /var/lib/apt/lists/*
 
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty

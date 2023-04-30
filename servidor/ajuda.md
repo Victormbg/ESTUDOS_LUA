@@ -1,7 +1,9 @@
 # PARA PORTA 1024
-sudo fuser -k 1024/tcp
-sudo nginx -s stop
-
+sudo lsof -i :1024
+sudo kill -9 <PID>
 
 # LIGA O SERVIDOR
 lapis serve
+
+# REINICAR
+sudo service nginx restart

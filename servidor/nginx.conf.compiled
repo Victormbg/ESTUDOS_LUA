@@ -12,12 +12,11 @@ http {
     listen 1024;
     server_name localhost;
 
-    location / {
-      default_type text/html;
-      content_by_lua_block {
-        local lapis = require("lapis")
-        lapis.serve("app")
-      }
+  location / {
+    default_type text/html;
+    content_by_lua_block {
+      dofile("webServerLapis.lua")
     }
+  }
   }
 }
