@@ -67,51 +67,46 @@ RUN luarocks search luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INC
     luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR 2> /var/log/luacrypto-install-errors.log || true
 
 # Instala o pacote http do LuaRocks que será utilizado posteriormente
-RUN luarocks install http
+RUN luarocks install http 2> /var/log/http-errors.log || true
 
-# Atualiza o cache dos pacotes e instala o pacote lua-cjson
-RUN apt-get update && apt-get install -y lua-cjson
-
-# Instala o pacote lua-cjson
-RUN luarocks install lua-cjson
-
-# Instala o pacote lua-async para permitir programação assíncrona no Lua.
-# Se a instalação falhar, o comando "true" garante que a build continue
-# e os erros serão redirecionados para um arquivo de log.
-RUN luarocks search lua-async 2> /var/log/lua-async-errors.log || true && \
-    luarocks install lua-async 2>> /var/log/lua-async-errors.log || true
+# Instala o pacote lua-cjson para trabalhar com JSON
+RUN luarocks install lua-cjson 2> /var/log/lua-cjson-errors.log || true
 
 # Instala o framework web Lapis
-RUN luarocks install lapis
+RUN luarocks install lapis 2> /var/log/lapis-errors.log || true
 
 # Instala a linguagem de programação MoonScript, utilizada pelo Lapis
-RUN luarocks install moonscript
+RUN luarocks install moonscript 2> /var/log/moonscript-errors.log || true
 
 # Instala o pacote bcrypt, para a criptografia de senhas
-RUN luarocks install bcrypt
+RUN luarocks install bcrypt 2> /var/log/bcrypt-errors.log || true
 
 # Instala o pacote luasec, para conexões HTTPS
-RUN luarocks install luasec
+RUN luarocks install luasec 2> /var/log/luasec-errors.log || true
 
 # Instala o pacote lua-term, para trabalhar com terminais
-RUN luarocks install lua-term
+RUN luarocks install lua-term 2> /var/log/lua-term-errors.log || true
 
 # Instala o pacote dkjson, para a manipulação de arquivos JSON
-RUN luarocks install dkjson
+RUN luarocks install dkjson 2> /var/log/dkjson-errors.log || true
 
-# Instala o pacote lapis-migrate para gerenciamento de migrações de banco de dados no Lapis, se disponível para a versão 5.4 do Lua. Registra erros em /var/log/lapis-migrate-errors.log
-RUN luarocks search lapis-migrate 2> /var/log/lapis-migrate-errors.log || true && \
-    luarocks install lapis-migrate 2> /var/log/lapis-migrate-errors.log || true
+# Instala o pacote lapis-console, para adicionar console interativo ao Lapis
+RUN luarocks install lapis-console 2> /var/log/lapis-console-errors.log || true
 
 # Instala o pacote inspect, para inspecionar e manipular objetos em Lua
-RUN luarocks install inspect
+RUN luarocks install inspect 2> /var/log/inspect-errors.log || true
 
 # Instala o pacote penlight, uma biblioteca utilitária para Lua
-RUN luarocks install penlight
+RUN luarocks install penlight 2> /var/log/penlight-errors.log || true
 
-RUN luarocks install luasocket 2> /var/log/luasocket-errors.log || true && \
-    luarocks install lua-async-await 2> /var/log/lua-async-await-errors.log || true && \
-    luarocks install promise-lua 2> /var/log/promise-lua-errors.log || true
+# Instala o pacote luasocket, para conexões de rede
+RUN luarocks install luasocket 2> /var/log/luasocket-errors.log || true
+
+# Instala o pacote async, para suporte a programação assíncrona
+RUN luarocks install async 2> /var/log/async-errors.log || true
+
+# Instala o pacote promise-lua, para programação com Promises
+RUN luarocks install promise-lua 2> /var/log/promise-lua-errors.log || true
 
 # Remove arquivos desnecessários do sistema
 RUN rm -rf /var/lib/apt/lists/* && \

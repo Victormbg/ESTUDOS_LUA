@@ -1,7 +1,7 @@
 -- Importar as dependências
 local Promise = require("promise")
 local cjson = require("cjson")
-local async = require("lua-async-await")
+local async = require("async")
 local functions = require("functions")
 
 -- Função assíncrona para obter os dados de um estado
