@@ -61,7 +61,7 @@ RUN apt-get remove -y build-essential wget unzip libreadline-dev wget && \
     
 # Atualiza a lista de pacotes e instala a biblioteca de desenvolvimento do readline
 RUN apt-get update && \
-    apt-get install -y libreadline8-dev
+    apt-get install -y libreadline-dev
 
 # Instala o pacote http do LuaRocks que será utilizado posteriormente
 RUN luarocks install http
