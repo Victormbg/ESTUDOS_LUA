@@ -114,12 +114,9 @@ RUN luarocks install luasocket 2> /var/log/luasocket-errors.log || true && \
     luarocks install promise-lua 2> /var/log/promise-lua-errors.log || true
 
 # Remove arquivos desnecessários do sistema
-RUN rm -rf /var/lib/apt/lists/*
-
-# Remove pacotes desnecessários instalados anteriormente
-RUN apt-get remove -y wget unzip && \
+RUN rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y
-    
+
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
 
