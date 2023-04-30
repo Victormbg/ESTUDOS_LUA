@@ -55,9 +55,6 @@ RUN apt-get update && \
     # remove o arquivo tar.gz e o diretório luarocks-3.4.0
     rm -rf luarocks-3.4.0.tar.gz luarocks-3.4.0
 
-# Instala o pacote http do LuaRocks que será utilizado posteriormente
-RUN luarocks install http
-
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
 
@@ -68,6 +65,9 @@ ENV CRYPTO_INCDIR=/usr/include/
 # Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima. Registra erros em /var/log/luacrypto-errors.log.
 RUN luarocks search luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR 2> /var/log/luacrypto-search-errors.log || true && \
     luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR 2> /var/log/luacrypto-install-errors.log || true
+
+# Instala o pacote http do LuaRocks que será utilizado posteriormente
+RUN luarocks install http
 
 # Atualiza o cache dos pacotes e instala o pacote lua-cjson
 RUN apt-get update && apt-get install -y lua-cjson
