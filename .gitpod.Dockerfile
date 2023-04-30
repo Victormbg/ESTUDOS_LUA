@@ -58,6 +58,13 @@ RUN apt-get update && \
 # Remove pacotes desnecessários instalados anteriormente
 RUN apt-get remove -y build-essential wget unzip libreadline-dev wget && \
     apt-get autoremove -y
+    
+# Atualiza a lista de pacotes e instala a biblioteca de desenvolvimento do readline
+RUN apt-get update && \
+    apt-get install -y libreadline8-dev
+
+# Instala o pacote http do LuaRocks que será utilizado posteriormente
+RUN luarocks install http
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
@@ -66,15 +73,12 @@ RUN apt-get update && apt-get install -y libssl-dev m4
 ENV CRYPTO_DIR=/usr/lib/
 ENV CRYPTO_INCDIR=/usr/include/
 
-# Instala as dependências do http
-RUN luarocks install http
-
-# Atualiza o cache dos pacotes e instala o pacote lua-cjson
-RUN apt-get update && apt-get install -y lua-cjson
-
 # Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima. Registra erros em /var/log/luacrypto-errors.log.
 RUN luarocks search luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR 2> /var/log/luacrypto-search-errors.log || true && \
     luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR 2> /var/log/luacrypto-install-errors.log || true
+
+# Atualiza o cache dos pacotes e instala o pacote lua-cjson
+RUN apt-get update && apt-get install -y lua-cjson
 
 # Instala o pacote lua-cjson
 RUN luarocks install lua-cjson
