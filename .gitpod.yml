@@ -7,5 +7,7 @@ tasks:
       lua -v
       luarocks --version
       git --version
+      openresty -v
+      nginx -v
       # Lista todos os pacotes instalados pelo luarocks
       luarocks list
