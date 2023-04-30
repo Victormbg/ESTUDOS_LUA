@@ -38,7 +38,7 @@ RUN apt-get update && \
     rm -rf lua-5.3.6
 
 # Baixa o arquivo tar.gz do LuaRocks 3.4.0
-RUN apt-get update &&
+RUN apt-get update && \
     wget https://luarocks.github.io/luarocks/releases/luarocks-3.4.0.tar.gz && \
     # extrai o conteúdo do arquivo tar.gz
     tar zxpf luarocks-3.4.0.tar.gz && \
