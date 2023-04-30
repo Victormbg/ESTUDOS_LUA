@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install build-essential wget unzip libreadline-dev && \
+    apt-get -y install build-essential wget unzip libreadline-dev libreadline8 && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala o git
@@ -117,7 +117,7 @@ RUN luarocks install luasocket 2> /var/log/luasocket-errors.log || true && \
 RUN rm -rf /var/lib/apt/lists/*
 
 # Remove pacotes desnecessários instalados anteriormente
-RUN apt-get remove -y build-essential wget unzip libreadline-dev wget && \
+RUN apt-get remove -y wget unzip && \
     apt-get autoremove -y
     
 # Define o diretório que será usado como volume
