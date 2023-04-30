@@ -3,8 +3,9 @@ image:
 
 tasks:
   - init: |
+      clear
       lua -v
       luarocks --version
       git --version
-      nano --version
+      # Lista todos os pacotes instalados pelo luarocks
       luarocks list

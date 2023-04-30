@@ -19,15 +19,15 @@ RUN apt-get update && apt-get install -y git
 ENV PATH="${PATH}:$(which git)"
 
 # Baixa o arquivo do Lua e descompacta-o
-RUN curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz && \
-    tar zxf lua-5.4.4.tar.gz && \
-    rm lua-5.4.4.tar.gz && \
-    cd lua-5.4.4 && \
+RUN curl -R -O https://www.lua.org/ftp/lua-5.3.6.tar.gz && \
+    tar zxf lua-5.3.6.tar.gz && \
+    rm lua-5.3.6.tar.gz && \
+    cd lua-5.3.6 && \
     # Compila o Lua com as opções padrão
-    make linux test && \
+    make linux MYCFLAGS=-fPIC && \
     make install && \
     cd .. && \
-    rm -rf lua-5.4.4
+    rm -rf lua-5.3.6
 
 # Baixa o arquivo do luarocks e descompacta-o
 RUN curl -R -O https://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.gz && \
@@ -64,8 +64,8 @@ RUN luarocks install lua-cjson
 # Instala o pacote lua-async para permitir programação assíncrona no Lua.
 # Se a instalação falhar, o comando "true" garante que a build continue
 # e os erros serão redirecionados para um arquivo de log.
-RUN luarocks search lua-async --lua-version=5.4 2> /var/log/lua-async-errors.log || true && \
-    luarocks install lua-async --lua-version=5.4 2>> /var/log/lua-async-errors.log || true
+RUN luarocks search lua-async 2> /var/log/lua-async-errors.log || true && \
+    luarocks install lua-async 2>> /var/log/lua-async-errors.log || true
 
 # Instala o framework web Lapis
 RUN luarocks install lapis
@@ -86,8 +86,8 @@ RUN luarocks install lua-term
 RUN luarocks install dkjson
 
 # Instala o pacote lapis-migrate para gerenciamento de migrações de banco de dados no Lapis, se disponível para a versão 5.4 do Lua. Registra erros em /var/log/lapis-migrate-errors.log
-RUN luarocks search lapis-migrate --lua-version=5.4 2> /var/log/lapis-migrate-errors.log || true && \
-    luarocks install lapis-migrate --lua-version=5.4 2> /var/log/lapis-migrate-errors.log || true
+RUN luarocks search lapis-migrate 2> /var/log/lapis-migrate-errors.log || true && \
+    luarocks install lapis-migrate 2> /var/log/lapis-migrate-errors.log || true
 
 # Instala o pacote inspect, para inspecionar e manipular objetos em Lua
 RUN luarocks install inspect
@@ -95,9 +95,13 @@ RUN luarocks install inspect
 # Instala o pacote penlight, uma biblioteca utilitária para Lua
 RUN luarocks install penlight
 
+RUN luarocks install luasocket 2> /var/log/luasocket-errors.log || true && \
+    luarocks install lua-async-await 2> /var/log/lua-async-await-errors.log || true && \
+    luarocks install luapromise 2> /var/log/luapromise-errors.log || true
+
 # Remove arquivos desnecessários do sistema
 RUN rm -rf /var/lib/apt/lists/*
-    
+
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
 
