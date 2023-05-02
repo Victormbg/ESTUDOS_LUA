@@ -40,6 +40,10 @@ RUN apt-get update && \
     # remove o diretório lua-5.3.6
     rm -rf lua-5.3.6
 
+# Adiciona as variáveis de ambiente LUA_PATH e LUA_CPATH
+ENV LUA_PATH="/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.lua;;"
+ENV LUA_CPATH="/usr/local/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/loadall.so;;"
+
 # Baixa o arquivo tar.gz do LuaRocks 3.9.2
 RUN apt-get update && \
     wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz && \

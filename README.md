@@ -21,7 +21,7 @@ Ao usar o LuaRocks em seu projeto, você pode economizar tempo e esforço ao ins
 
 - https://luarocks.org/
 
-## O que é LuaRocks?
+## O que é LuaJIT?
 LuaJIT é uma implementação Just-In-Time (JIT) da linguagem de programação Lua. A implementação JIT permite que o LuaJIT execute código Lua em tempo de execução, compilando-o em código de máquina nativo para obter desempenho mais rápido do que a interpretação tradicional do código.
 
 LuaJIT é especialmente conhecido por seu desempenho superior, em comparação com outras implementações de Lua e muitas outras linguagens de script. É comumente usado para aplicativos que exigem alto desempenho, como jogos, servidores web e outras aplicações de tempo real.
