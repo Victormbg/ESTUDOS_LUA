@@ -6,6 +6,8 @@ Lua é uma linguagem de programação leve, poderosa e eficiente, projetada para
 
 Criada em 1993 por uma equipe de programadores da PUC-Rio, Lua é uma linguagem de programação livre, de código aberto e distribuída sob a licença MIT.
 
+- Comando para rodar programa: lua
+
 - https://www.lua.org/
 
 ## O que é LuaRocks?
@@ -15,7 +17,20 @@ O LuaRocks permite que você instale, remova e gerencie facilmente pacotes Lua e
 
 Ao usar o LuaRocks em seu projeto, você pode economizar tempo e esforço ao instalar e gerenciar as dependências de seu projeto, o que torna o processo de desenvolvimento mais fácil e eficiente
 
+- Comando para rodar programa: luarocks
+
 - https://luarocks.org/
+
+## O que é LuaRocks?
+LuaJIT é uma implementação Just-In-Time (JIT) da linguagem de programação Lua. A implementação JIT permite que o LuaJIT execute código Lua em tempo de execução, compilando-o em código de máquina nativo para obter desempenho mais rápido do que a interpretação tradicional do código.
+
+LuaJIT é especialmente conhecido por seu desempenho superior, em comparação com outras implementações de Lua e muitas outras linguagens de script. É comumente usado para aplicativos que exigem alto desempenho, como jogos, servidores web e outras aplicações de tempo real.
+
+Além de ser mais rápido, o LuaJIT também oferece recursos adicionais em relação à implementação padrão da linguagem Lua, como manipulação direta de ponteiros e acesso a bibliotecas C. Isso torna o LuaJIT uma escolha popular para aplicativos que exigem baixa latência e alto desempenho, além de integração com outras bibliotecas e sistemas.
+
+- Comando para rodar programa: luajit
+
+- https://luajit.org/
 
 ## Versão do Lua e LuaRocks
 Este projeto tem um Dockerfile que instala o Lua 5.3.6 e o LuaRocks 3.4.0 no Ubuntu 20.04.
@@ -197,18 +212,3 @@ setx LUA_PATH "C:\Users\victo\AppData\Roaming\luarocks\share\lua\5.3\?.lua"
 Certifique-se de substituir C:\Users\victo pelo caminho para o seu perfil de usuário, se necessário.
 
 10.3. Feche e reabra o prompt de comando para que as alterações tenham efeito.
-
-# Instalar o Lapis no Windows:
-
-Se você precisar instalar o Lapis no Windows 10, você pode seguir as seguintes etapas:
-
-1. Baixe e instale o OpenSSL para Windows 10 a partir do site oficial: https://slproweb.com/products/Win32OpenSSL.html
-
-2. Instale o Lapis usando o comando:
-`
-luarocks install luaossl OPENSSL_DIR="C:\Program Files (x86)\OpenSSL" OPENSSL_INCDIR="C:\Program Files (x86)\OpenSSL\include" OPENSSL_LIBDIR="C:\Program Files (x86)\OpenSSL\lib" CRYPTO_INCDIR="C:\Program Files (x86)\OpenSSL\include" CRYPTO_LIBDIR="C:\Program Files (x86)\OpenSSL\lib"
-`
-
-- Este comando instalará o Lapis localmente no seu sistema, usando a versão 5.3 do Lua e apontando para a instalação do OpenSSL que você acabou de baixar e instalar no passo 2.
-
-- Note que no comando acima, em vez de usar a opção OPENSSL_DIR, utilizamos OPENSSL_INCDIR e OPENSSL_LIBDIR, que são opções suportadas pelo Lapis para especificar o diretório de inclusão e biblioteca do OpenSSL, respectivamente, para sistemas Windows.

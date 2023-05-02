@@ -58,7 +58,7 @@ RUN apt-get update && \
     rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2
 
 # Instala o LuaJIT
-RUN apt-get update && apt-get install -y luajit
+RUN apt-get update && apt-get install -y luajit libpcre3-dev
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4

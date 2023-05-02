@@ -11,13 +11,9 @@ events {
 http {
   include mime.types;
 
-  init_by_lua_block {
-    require "lpeg"
-  }
-
   server {
     listen 8080;
-    lua_code_cache off;
+    lua_code_cache on;
 
     location / {
       default_type text/html;

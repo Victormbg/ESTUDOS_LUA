@@ -11,3 +11,4 @@ tasks:
       nginx -v
       # Lista todos os pacotes instalados pelo luarocks
       luarocks list
+      luajit -v
