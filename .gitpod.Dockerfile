@@ -17,9 +17,6 @@ RUN apt-get update && apt-get -y upgrade && \
 # Instala o git
 RUN apt-get update && apt-get install -y git
 
-# Instala o LuaJIT
-RUN apt-get update && apt-get install -y luajit
-
 # Define a variável PATH incluindo o caminho para o git
 ENV PATH="${PATH}:$(which git)"
 
@@ -59,6 +56,9 @@ RUN apt-get update && \
     cd .. && \
     # remove o arquivo tar.gz e o diretório luarocks-3.9.2
     rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2
+
+# Instala o LuaJIT
+RUN apt-get update && apt-get install -y luajit
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
