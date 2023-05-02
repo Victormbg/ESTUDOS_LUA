@@ -253,3 +253,27 @@ stack traceback:
 stack traceback:
 	[C]: in function 'require'
 	init_by_lua:2: in main chunk
+2023/05/02 18:36:45 [error] 616#616: init_by_lua error: error loading module 'lpeg' from file '/usr/local/lib/lua/5.3/lpeg.so':
+	/usr/local/lib/lua/5.3/lpeg.so: undefined symbol: luaL_prepbuffsize
+stack traceback:
+	[C]: at 0x7fbc801f4610
+	[C]: in function 'require'
+	init_by_lua:2: in main chunk
+2023/05/02 18:36:58 [error] 636#636: init_by_lua error: error loading module 'lpeg' from file '/usr/local/lib/lua/5.3/lpeg.so':
+	/usr/local/lib/lua/5.3/lpeg.so: undefined symbol: luaL_prepbuffsize
+stack traceback:
+	[C]: at 0x7f7cefe7e610
+	[C]: in function 'require'
+	init_by_lua:2: in main chunk
+2023/05/02 18:37:00 [error] 650#650: init_by_lua error: error loading module 'lpeg' from file '/usr/local/lib/lua/5.3/lpeg.so':
+	/usr/local/lib/lua/5.3/lpeg.so: undefined symbol: luaL_prepbuffsize
+stack traceback:
+	[C]: at 0x7f71e39eb610
+	[C]: in function 'require'
+	init_by_lua:2: in main chunk
+2023/05/02 18:37:17 [error] 684#684: init_by_lua error: error loading module 'lpeg' from file '/usr/local/lib/lua/5.3/lpeg.so':
+	/usr/local/lib/lua/5.3/lpeg.so: undefined symbol: luaL_prepbuffsize
+stack traceback:
+	[C]: at 0x7feb48128610
+	[C]: in function 'require'
+	init_by_lua:2: in main chunk
