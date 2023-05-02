@@ -17,6 +17,9 @@ RUN apt-get update && apt-get -y upgrade && \
 # Instala o git
 RUN apt-get update && apt-get install -y git
 
+# Instala o LuaJIT
+RUN apt-get update && apt-get install -y luajit
+
 # Define a variável PATH incluindo o caminho para o git
 ENV PATH="${PATH}:$(which git)"
 
@@ -129,12 +132,12 @@ RUN luarocks install async > /dev/null 2> /var/log/async-errors.log || true
 # Instala o pacote promise-lua, para programação com Promises
 RUN luarocks install promise-lua > /dev/null 2> /var/log/promise-lua-errors.log || true
 
+# Instala o pacotelpeg, para programação com Promises
+RUN luarocks install lpeg > /dev/null 2> /var/log/lpeg-errors.log || true
+
 # Remove arquivos desnecessários do sistema
 RUN rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y
 
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
-
-# Define o comando padrão que será executado quando o container for iniciado
-CMD ["lapis", "server"]
