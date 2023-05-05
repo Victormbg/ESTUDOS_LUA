@@ -69,27 +69,27 @@ function opcao2()
     end
 end
 
-function opcao3()
+local function opcao3()
     -- Limpar Terminal
     clearConsole()
     -- decodificando o texto hex e exibindo o resultado
     io.write("Digite o JSON: ")
     local jsonString = io.read()
     if #jsonString > 0 then
-        local ok, textoDecodificado = pcall(jsonANDyaml.jsonToYaml, jsonString)
+        local ok, yamlString = pcall(jsonANDyaml.jsonToYaml, jsonString)
         if ok then
             -- Limpar Terminal
             clearConsole()
-            io.write("YAML: ", textoDecodificado, "\n")
+            io.write("YAML: ", yamlString, "\n")
             -- perguntar ao usuário se ele deseja salvar o resultado em um arquivo
-            io.write("Deseja salvar o resultado em um arquivo de texto? (S/N) ")
+            io.write("Deseja salvar o resultado em um arquivo do tipo YAML? (S/N) ")
             local opcao = io.read()
             if opcao == 's' or opcao == 'S' then
                 io.write("Digite o nome do arquivo: ")
-                local nomeArquivo = io.read()
+                local nomeArquivo = io.read() .. ".yaml"
                 local arquivo = io.open(nomeArquivo, "w")
                 if arquivo then
-                    arquivo:write(textoDecodificado)
+                    arquivo:write(yamlString)
                     arquivo:close()
                     -- Limpar Terminal
                     clearConsole()
@@ -110,7 +110,7 @@ function opcao3()
     end
 end
 
-function opcao4()
+local function opcao4()
     -- Limpar Terminal
     clearConsole()
     -- decodificando o texto hex e exibindo o resultado

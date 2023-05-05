@@ -19,9 +19,9 @@ while true do
   elseif opcao == "2" then
     opcoes.opcao2();
   elseif opcao == "3" then
-    opcoes.opcao2();
+    opcoes.opcao3();
   elseif opcao == "4" then
-    opcoes.opcao2();
+    opcoes.opcao4();
   elseif opcao == "5" then
     -- encerrando o programa
     break
