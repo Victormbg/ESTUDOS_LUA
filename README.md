@@ -28,9 +28,14 @@ LuaJIT é especialmente conhecido por seu desempenho superior, em comparação c
 
 Além de ser mais rápido, o LuaJIT também oferece recursos adicionais em relação à implementação padrão da linguagem Lua, como manipulação direta de ponteiros e acesso a bibliotecas C. Isso torna o LuaJIT uma escolha popular para aplicativos que exigem baixa latência e alto desempenho, além de integração com outras bibliotecas e sistemas.
 
-- Comando para rodar programa: luajit
-
+Site:
 - https://luajit.org/
+
+Comando para rodar programa em luaJIT: 
+- luajit
+
+Comando para converte o luajit em Assembly:
+- luajit -b meucodigo.lua meucodigo.s
 
 ## Versão do Lua e LuaRocks
 Este projeto tem um Dockerfile que instala o Lua 5.3.6 e o LuaRocks 3.4.0 no Ubuntu 20.04.
