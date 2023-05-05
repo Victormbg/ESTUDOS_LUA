@@ -6,8 +6,11 @@ Lua é uma linguagem de programação leve, poderosa e eficiente, projetada para
 
 Criada em 1993 por uma equipe de programadores da PUC-Rio, Lua é uma linguagem de programação livre, de código aberto e distribuída sob a licença MIT.
 
-- Comando para rodar programa: lua
+Comando para rodar programa em Lua:
+- lua
 
+Site:
+- https://github.com/lua/lua
 - https://www.lua.org/
 
 ## O que é LuaRocks?
@@ -17,8 +20,11 @@ O LuaRocks permite que você instale, remova e gerencie facilmente pacotes Lua e
 
 Ao usar o LuaRocks em seu projeto, você pode economizar tempo e esforço ao instalar e gerenciar as dependências de seu projeto, o que torna o processo de desenvolvimento mais fácil e eficiente
 
-- Comando para rodar programa: luarocks
+Comando para baixar pacote do LuaRocks:
+- luarocks
 
+Site:
+- https://github.com/luarocks/luarocks
 - https://luarocks.org/
 
 ## O que é LuaJIT?
@@ -30,6 +36,7 @@ Além de ser mais rápido, o LuaJIT também oferece recursos adicionais em rela�
 
 Site:
 - https://luajit.org/
+- https://github.com/LuaJIT
 
 Comando para rodar programa em luaJIT: 
 - luajit

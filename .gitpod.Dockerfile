@@ -91,6 +91,12 @@ RUN apt-get update && \
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
 
+# Instala o libyaml-dev usado pelo lyaml
+RUN sudo apt-get install libyaml-dev
+
+# Instala o lyaml do LuaRocks
+RUN luarocks install lyaml
+
 # Instala o pacote http do LuaRocks que será utilizado posteriormente
 RUN luarocks install http > /dev/null 2> /var/log/http-errors.log || true
 
