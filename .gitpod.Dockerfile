@@ -92,7 +92,7 @@ RUN apt-get update && \
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
 
 # Instala o libyaml-dev usado pelo lyaml
-RUN apt-get update && apt-get install libyaml-dev
+RUN apt-get update && apt-get install -y libyaml-dev
 
 # Instala o lyaml do LuaRocks
 RUN luarocks install lyaml
