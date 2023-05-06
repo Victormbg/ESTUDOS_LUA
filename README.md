@@ -224,3 +224,7 @@ setx LUA_PATH "C:\Users\victo\AppData\Roaming\luarocks\share\lua\5.3\?.lua"
 Certifique-se de substituir C:\Users\victo pelo caminho para o seu perfil de usuário, se necessário.
 
 10.3. Feche e reabra o prompt de comando para que as alterações tenham efeito.
+
+# Links de Suporte:
+
+- https://www.tutorialspoint.com/lua/index.htm
