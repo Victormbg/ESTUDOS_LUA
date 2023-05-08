@@ -66,7 +66,7 @@ RUN apt-get update && apt-get install -y luajit libpcre3-dev
 
 # Instala dependências necessárias para compilar o LuaGL
 RUN sudo apt-get update && \
-    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.1-0-dev
+    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.1-0-dev freeglut3-dev
 
 # Instala a biblioteca LuaGL
 RUN luarocks install luagl
