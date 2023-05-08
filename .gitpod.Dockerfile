@@ -79,10 +79,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends libpcre3-dev libssl-dev perl make build-essential curl && \
     rm -rf /var/lib/apt/lists/*
 
-# Instala as dependencia para o OpenGL e LuaGL
-RUN apt-get update && \
-    apt-get install -y libcd-dev libiup-dev libiuplua-dev liblua5.3-dev
-
 # Baixando e instalando o CD
 RUN curl -L https://www.tecgraf.puc-rio.br/cd/versao_atual/cd-x.xx.tar.gz -o cd-x.xx.tar.gz \
     && tar -xvf cd-x.xx.tar.gz \
