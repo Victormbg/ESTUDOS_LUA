@@ -69,7 +69,7 @@ RUN sudo apt-get update && \
     sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev
 
 # Instala a biblioteca LuaGL
-RUN luarocks install luagl 1.11-1
+RUN luarocks install opengl
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
