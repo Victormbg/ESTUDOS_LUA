@@ -79,6 +79,10 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends libpcre3-dev libssl-dev perl make build-essential curl && \
     rm -rf /var/lib/apt/lists/*
 
+# Instala dependências necessárias para compilar o LuaGL
+RUN sudo apt-get update && \
+    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev
+
 # Baixando e instalando o CD
 RUN curl -L https://www.tecgraf.puc-rio.br/cd/versao_atual/cd-x.xx.tar.gz -o cd-x.xx.tar.gz \
     && tar -xvf cd-x.xx.tar.gz \
@@ -94,10 +98,6 @@ RUN curl -L https://www.tecgraf.puc-rio.br/iup/versao_atual/iup-x.xx.tar.gz -o i
     && make generic \
     && sudo make install \
     && cd ..
-
-# Instala dependências necessárias para compilar o LuaGL
-RUN sudo apt-get update && \
-    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev
 
 # Instala a biblioteca LuaGL
 RUN luarocks install opengl
