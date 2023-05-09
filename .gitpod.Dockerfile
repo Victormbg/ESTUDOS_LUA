@@ -93,12 +93,12 @@ RUN sudo apt-get update && \
 #     && cd ..
 
 # Baixando e instalando o IUP
-RUN curl -L https://sourceforge.net/projects/iup/files/3.30/Linux%20Libraries/iup-3.30_Linux54_64_lib.tar.gz -o iup-3.30.tar.gz \
-    && tar -xzvf iup-3.30.tar.gz \
-    && cd iup-3.30_Linux54_64_lib \
-    && sudo cp -r include/* /usr/local/include/ \
-    && sudo cp -r lib/* /usr/local/lib/ \
-    && cd ..
+# RUN curl -L https://sourceforge.net/projects/iup/files/3.30/Linux%20Libraries/iup-3.30_Linux54_64_lib.tar.gz -o iup-3.30.tar.gz \
+#     && tar -xzvf iup-3.30.tar.gz \
+#     && cd iup-3.30_Linux54_64_lib \
+#     && sudo cp -r include/* /usr/local/include/ \
+#     && sudo cp -r lib/* /usr/local/lib/ \
+#     && cd ..
 
 # Instala a biblioteca LuaGL
 RUN luarocks install opengl
