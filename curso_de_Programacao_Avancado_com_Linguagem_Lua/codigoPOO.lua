@@ -1,5 +1,5 @@
 -- Definição da classe Pessoa
-Pessoa = {nome = "", idade = 0}
+Pessoa = { nome = "", idade = 0 }
 
 -- Método construtor da classe Pessoa
 function Pessoa:new(nome, idade)
