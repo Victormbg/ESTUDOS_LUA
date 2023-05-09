@@ -81,7 +81,7 @@ RUN apt-get update && \
 
 # Instala dependências necessárias para compilar o LuaGL
 RUN sudo apt-get update && \
-    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev libgirepository1.0-dev
+    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev libgirepository1.0-dev software-properties-common
 
 # Baixando e instalando o CD
 # RUN curl -L https://sourceforge.net/projects/canvasdraw/files/5.14/Linux%20Libraries/cd-5.14_Linux50_64_lib.tar.gz -o cd-5.14_Linux50_64_lib.tar.gz \
