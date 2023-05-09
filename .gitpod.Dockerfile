@@ -85,7 +85,7 @@ RUN sudo apt-get update && \
 
 # Baixando e instalando o CD
 RUN curl -L https://downloads.sourceforge.net/project/canvasdraw/cd-5.14.tar.gz -o cd-5.14.tar.gz \
-    && tar -xvf cd-5.14.tar.gz \
+    && tar -xzvf cd-5.14.tar.gz \
     && cd cd-5.14 \
     && make generic \
     && sudo make install \
@@ -93,7 +93,7 @@ RUN curl -L https://downloads.sourceforge.net/project/canvasdraw/cd-5.14.tar.gz 
 
 # Baixando e instalando o IUP
 RUN curl -L https://downloads.sourceforge.net/project/iup/3.30/iup-3.30_Linux32_64_lib.tar.gz -o iup-3.30.tar.gz \
-    && tar -xvf iup-3.30.tar.gz \
+    && tar -xzvf iup-3.30.tar.gz \
     && cd iup-3.30_Linux32_64_lib \
     && sudo cp -r include/* /usr/local/include/ \
     && sudo cp -r lib/* /usr/local/lib/ \
