@@ -85,7 +85,7 @@ RUN sudo apt-get update && \
 
 # Baixando e instalando o CD
 RUN curl -L https://sourceforge.net/projects/canvasdraw/files/5.14/Linux%20Libraries/cd-5.14_Linux54_64_lib.tar.gz -o cd-5.14_Linux54_64_lib.tar.gz \
-    && tar -xzvf cd-5.14_Linux54_64_lib.tar.gz \
+    && tar -xzvf cd-5.14_Linux54_64_lib.tar.gz --no-same-owner \
     && sudo cp -r cd-5.14_Linux54_64_lib/include/* /usr/local/include/ \
     && sudo cp -r cd-5.14_Linux54_64_lib/lib/* /usr/local/lib/ \
     && cd ..
