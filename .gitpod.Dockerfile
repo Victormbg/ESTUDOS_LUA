@@ -84,19 +84,19 @@ RUN sudo apt-get update && \
     sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev
 
 # Baixando e instalando o CD
-RUN curl -L https://www.tecgraf.puc-rio.br/cd/versao_atual/cd-x.xx.tar.gz -o cd-x.xx.tar.gz \
-    && tar -xvf cd-x.xx.tar.gz \
-    && cd cd-x.xx \
+RUN curl -L https://downloads.sourceforge.net/project/canvasdraw/cd-5.14.tar.gz -o cd-5.14.tar.gz \
+    && tar -xvf cd-5.14.tar.gz \
+    && cd cd-5.14 \
     && make generic \
     && sudo make install \
     && cd ..
 
 # Baixando e instalando o IUP
-RUN curl -L https://www.tecgraf.puc-rio.br/iup/versao_atual/iup-x.xx.tar.gz -o iup-x.xx.tar.gz \
-    && tar -xvf iup-x.xx.tar.gz \
-    && cd iup-x.xx \
-    && make generic \
-    && sudo make install \
+RUN curl -L https://downloads.sourceforge.net/project/iup/3.30/iup-3.30_Linux32_64_lib.tar.gz -o iup-3.30.tar.gz \
+    && tar -xvf iup-3.30.tar.gz \
+    && cd iup-3.30_Linux32_64_lib \
+    && sudo cp -r include/* /usr/local/include/ \
+    && sudo cp -r lib/* /usr/local/lib/ \
     && cd ..
 
 # Instala a biblioteca LuaGL
