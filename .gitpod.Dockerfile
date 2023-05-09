@@ -84,17 +84,16 @@ RUN sudo apt-get update && \
     sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev
 
 # Baixando e instalando o CD
-RUN curl -L https://downloads.sourceforge.net/project/canvasdraw/cd-5.14.tar.gz -o cd-5.14.tar.gz \
-    && tar -xzvf cd-5.14.tar.gz \
-    && cd cd-5.14 \
-    && make generic \
-    && sudo make install \
+RUN curl -L https://sourceforge.net/projects/canvasdraw/files/5.14/Linux%20Libraries/cd-5.14_Linux54_64_lib.tar.gz -o cd-5.14_Linux54_64_lib.tar.gz \
+    && tar -xzvf cd-5.14_Linux54_64_lib.tar.gz \
+    && sudo cp -r cd-5.14_Linux54_64_lib/include/* /usr/local/include/ \
+    && sudo cp -r cd-5.14_Linux54_64_lib/lib/* /usr/local/lib/ \
     && cd ..
 
 # Baixando e instalando o IUP
-RUN curl -L https://downloads.sourceforge.net/project/iup/3.30/iup-3.30_Linux32_64_lib.tar.gz -o iup-3.30.tar.gz \
+RUN curl -L https://sourceforge.net/projects/iup/files/3.30/Linux%20Libraries/iup-3.30_Linux54_64_lib.tar.gz -o iup-3.30.tar.gz \
     && tar -xzvf iup-3.30.tar.gz \
-    && cd iup-3.30_Linux32_64_lib \
+    && cd iup-3.30_Linux54_64_lib \
     && sudo cp -r include/* /usr/local/include/ \
     && sudo cp -r lib/* /usr/local/lib/ \
     && cd ..
