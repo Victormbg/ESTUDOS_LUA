@@ -7,88 +7,165 @@ ENV TZ=America/Sao_Paulo
 # Define a variável de ambiente DEBIAN_FRONTEND como noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
-
-# Instala as ferramentas necessárias para compilar o Lua
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install unzip libreadline-dev libreadline8 wget tree lua5.4 liblua5.4-0 liblua5.4-dev liblua5.4-0-dbg libtool-bin pkg-config libc6 libc6-dev dh-lua && \
-    rm -rf /var/lib/apt/lists/*
-
-# Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install libdevil-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libopenal-dev libalut-dev libvorbis-dev libphysfs-dev && \
-    rm -rf /var/lib/apt/lists/*
-
-# Instala o git
-RUN apt-get update && apt-get install -y git
+RUN apt-get update \
+    && apt-get install -y \
+        sudo \
+        unzip \
+        libreadline-dev \
+        libreadline8 \
+        wget \
+        tree \
+        lua5.4 \
+        liblua5.4-0 \
+        liblua5.4-dev \
+        liblua5.4-0-dbg \
+        libtool-bin \
+        pkg-config \
+        libc6 \
+        libc6-dev \
+        dh-lua \
+        git \
+    && rm -rf /var/lib/apt/lists/*
 
 # Define a variável PATH incluindo o caminho para o git
 ENV PATH="${PATH}:$(which git)"
 
+# Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO
+RUN apt-get update \
+    && apt-get -y upgrade \
+    && apt-get -y install \
+        libdevil-dev \
+        libxcursor-dev \
+        libxi-dev \
+        libxinerama-dev \
+        libxrandr-dev \
+        libxxf86vm-dev \
+        libopenal-dev \
+        libalut-dev \
+        libvorbis-dev \
+        libphysfs-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # Instalação do Lua 5.4.4
-RUN apt-get update && \
-    apt-get install -y build-essential && \
-    # baixa o arquivo tar.gz do Lua 5.4.4
-    wget https://www.lua.org/ftp/lua-5.4.4.tar.gz && \
-    # extrai o conteúdo do arquivo tar.gz
-    tar -xzf lua-5.4.4.tar.gz && \
-    # remove o arquivo tar.gz
-    rm lua-5.4.4.tar.gz && \
-    # entra no diretório lua-5.4.4
-    cd lua-5.4.4 && \
-    # compila o Lua 5.4.4
-    make linux && \
-    # instala o Lua 5.4.4
-    make install && \
-    # sai do diretório lua-5.4.4
-    cd .. && \
-    # remove o diretório lua-5.4.4
-    rm -rf lua-5.4.4 && \
-    apt-get autoremove -y && \
-    apt-get clean
+RUN apt-get update \
+    && apt-get install -y \
+        build-essential \
+        wget \
+    && cd /tmp \
+    && wget https://www.lua.org/ftp/lua-5.4.4.tar.gz \
+    && tar -xzf lua-5.4.4.tar.gz \
+    && rm lua-5.4.4.tar.gz \
+    && cd lua-5.4.4 \
+    && make linux \
+    && make install \
+    && cd .. \
+    && rm -rf lua-5.4.4 \
+    && apt-get autoremove -y \
+    && apt-get clean
 
 # Adiciona as variáveis de ambiente LUA_PATH e LUA_CPATH
 ENV LUA_PATH="/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;;"
 ENV LUA_CPATH="/usr/local/lib/lua/5.4/?.so;/usr/local/lib/lua/5.4/loadall.so;;"
 
 # Instalação do LuaRocks 3.9.2
-RUN apt-get update && \
-    wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz && \
-    # extrai o conteúdo do arquivo tar.gz
-    tar zxpf luarocks-3.9.2.tar.gz && \
-    # entra no diretório luarocks-3.9.2
-    cd luarocks-3.9.2 && \
-    # configura a compilação com a detecção automática do Lua
-    ./configure --with-lua-include=/usr/local/include && \
-    # compila e instala o LuaRocks 3.9.2
-    make && \
-    make install && \
-    # sai do diretório luarocks-3.9.2
-    cd .. && \
-    # remove o arquivo tar.gz e o diretório luarocks-3.9.2
-    rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2
+RUN apt-get update \
+    && apt-get install -y \
+        wget \
+        libreadline-dev \
+        libncurses-dev \
+        libssl-dev \
+        perl \
+        make \
+    && cd /tmp \
+    && wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz \
+    && tar zxpf luarocks-3.9.2.tar.gz \
+    && cd luarocks-3.9.2 \
+    && ./configure --with-lua-include=/usr/local/include \
+    && make \
+    && make install \
+    && cd .. \
+    && rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2 \
+    && apt-get autoremove -y \
+    && apt-get clean
 
-# Instala o LuaJIT e openresty/luajit2
-RUN apt-get update && apt-get install -y luajit libpcre3-dev
+RUN apt-get update && apt-get install -y \
+# LuaJIT e OpenResty/luajit2
+luajit libpcre3-dev \
+# OpenSSL, M4 (para pacote cqueues), e libyaml-dev (para pacote lyaml)
+libssl-dev m4 libyaml-dev \
+# Dependências necessárias para compilar o LuaGL
+build-essential libgl1-mesa-dev freeglut3-dev libgirepository1.0-dev software-properties-common gobject-introspection \
+# Outras bibliotecas essenciais
+curl lsb-release \
+# Dependências de compilação em geral
+perl make \
+# Depuração de pacotes de rede
+lsof &&
+rm -rf /var/lib/apt/lists/*
 
-# Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
-RUN apt-get update && apt-get install -y libssl-dev m4
-
-# Define as variáveis de ambiente necessárias para a instalação das dependências
+# Variáveis de ambiente para a instalação de dependências
 ENV CRYPTO_DIR=/usr/lib/
 ENV CRYPTO_INCDIR=/usr/include/
 
-# Instala o pacote luacrypto utilizando a versão do OpenSSL instalada acima. Registra erros em /var/log/luacrypto-errors.log.
-RUN luarocks search luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR > /dev/null 2> /var/log/luacrypto-search-errors.log || true && \
-    luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR > /dev/null 2> /var/log/luacrypto-install-errors.log || true
+# Instala o openresty e o nginx
+RUN curl -L https://openresty.org/package/pubkey.gpg | apt-key add - &&
+echo "deb http://openresty.org/package/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/openresty.list &&
+apt-get update &&
+apt-get install -y --no-install-recommends openresty nginx &&
+rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends libpcre3-dev libssl-dev perl make build-essential curl && \
+# Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
+ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
+
+# Instala dependencias para IA
+RUN apt-get update && apt-get -y upgrade && \
+    apt-get -y install cmake && \
     rm -rf /var/lib/apt/lists/*
 
-# Instala dependências necessárias para compilar o LuaGL
-RUN sudo apt-get update && \
-    sudo apt-get install -y build-essential libgl1-mesa-dev freeglut3-dev libgirepository1.0-dev software-properties-common gobject-introspection
+# Instala o cwrap do torch
+RUN git clone https://github.com/torch/cwrap.git \
+    && cd cwrap \
+    && luarocks make rocks/cwrap-scm-1.rockspec
+
+# Instala pacotes via luarocks
+RUN luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR
+&& luarocks install opengl > /dev/null
+&& luarocks install lua-gl > /dev/null
+&& luarocks install lgi > /dev/null
+&& luarocks install http > /dev/null
+&& luarocks install lua-cjson > /dev/null
+&& luarocks install lapis > /dev/null
+&& luarocks install moonscript > /dev/null
+&& luarocks install bcrypt > /dev/null
+&& luarocks install luasec > /dev/null
+&& luarocks install lua-term > /dev/null
+&& luarocks install dkjson > /dev/null
+&& luarocks install lapis-console > /dev/null
+&& luarocks install inspect > /dev/null
+&& luarocks install penlight > /dev/null
+&& luarocks install luasocket > /dev/null
+&& luarocks install async > /dev/null
+&& luarocks install lua-resty-session > /dev/null
+&& luarocks install lua-resty-jwt > /dev/null
+&& luarocks install lua-resty-openidc > /dev/null
+&& luarocks install luatz > /dev/null
+&& luarocks install lua-cmsgpack > /dev/null
+&& luarocks install lyaml > /dev/null
+&& luarocks install promise-lua > /dev/null
+&& luarocks install lpeg > /dev/null
+&& luarocks install --server=https://luarocks.org/dev paths > /dev/null
+&& luarocks install --server=https://luarocks.org/dev torch > /dev/null
+
+# Remove arquivos desnecessários do sistema
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Define o diretório que será usado como volume
+VOLUME ["/workspace"]
+
+
+# Instala o Love2D
+# RUN apt-get update && \
+#     apt-get install -y love
 
 # Baixando e instalando o CD
 # RUN curl -L https://sourceforge.net/projects/canvasdraw/files/5.14/Linux%20Libraries/cd-5.14_Linux50_64_lib.tar.gz -o cd-5.14_Linux50_64_lib.tar.gz \
@@ -106,105 +183,3 @@ RUN sudo apt-get update && \
 #     && sudo cp -r include/* /usr/local/include/ \
 #     && sudo cp -r lib/* /usr/local/lib/ \
 #     && cd ..
-
-# Instala a biblioteca LuaGL
-RUN luarocks install opengl > /dev/null 2> /var/log/opengl-errors.log || true
-
-# Instala a biblioteca LuaGL
-RUN luarocks install lua-gl > /dev/null 2> /var/log/lua-gl-errors.log || true
-
-# Instala a biblioteca lgi
-RUN luarocks install lgi > /dev/null 2> /var/log/lgi-errors.log || true
-
-# Instala o Love2D
-# RUN apt-get update && \
-#     apt-get install -y love
-
-# Instala o openresty e o nginx sem recomendações adicionais
-RUN apt-get update && \
-    apt-get install -y lsb-release && \
-    curl -L https://openresty.org/package/pubkey.gpg | apt-key add - && \
-    echo "deb http://openresty.org/package/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/openresty.list && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends openresty nginx lsof && \
-    rm -rf /var/lib/apt/lists/*
-
-# Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
-ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
-
-# Instala o libyaml-dev usado pelo lyaml
-RUN apt-get update && apt-get install -y libyaml-dev
-
-# Instala o lyaml do LuaRocks
-RUN luarocks install lyaml
-
-# Instala o pacote http do LuaRocks que será utilizado posteriormente
-RUN luarocks install http > /dev/null 2> /var/log/http-errors.log || true
-
-# Instala o pacote lua-cjson para trabalhar com JSON
-RUN luarocks install lua-cjson > /dev/null 2> /var/log/lua-cjson-errors.log || true
-
-# Instala o framework web Lapis
-RUN luarocks install lapis > /dev/null 2> /var/log/lapis-errors.log || true
-
-# Instala a linguagem de programação MoonScript, utilizada pelo Lapis
-RUN luarocks install moonscript > /dev/null 2> /var/log/moonscript-errors.log || true
-
-# Instala o pacote bcrypt, para a criptografia de senhas
-RUN luarocks install bcrypt > /dev/null 2> /var/log/bcrypt-errors.log || true
-
-# Instala o pacote luasec, para conexões HTTPS
-RUN luarocks install luasec > /dev/null 2> /var/log/luasec-errors.log || true
-
-# Instala o pacote lua-term, para trabalhar com terminais
-RUN luarocks install lua-term > /dev/null 2> /var/log/lua-term-errors.log || true
-
-# Instala o pacote dkjson, para a manipulação de arquivos JSON
-RUN luarocks install dkjson > /dev/null 2> /var/log/dkjson-errors.log || true
-
-# Instala o pacote lapis-console, para adicionar console interativo ao Lapis
-RUN luarocks install lapis-console > /dev/null 2> /var/log/lapis-console-errors.log || true
-
-# Instala o pacote inspect, para inspecionar e manipular objetos em Lua
-RUN luarocks install inspect > /dev/null 2> /var/log/inspect-errors.log || true
-
-# Instala o pacote penlight, uma biblioteca utilitária para Lua
-RUN luarocks install penlight > /dev/null 2> /var/log/penlight-errors.log || true
-
-# Instala o pacote luasocket, para conexões de rede
-RUN luarocks install luasocket > /dev/null 2> /var/log/luasocket-errors.log || true
-
-# Instala o pacote Love para desenvolvimento de jogos em Lua, utilizado pelo async
-RUN luarocks install love > /dev/null 2> /var/log/async-errors.log || true
-
-# Instala o pacote async, para suporte a programação assíncrona
-RUN luarocks install async > /dev/null 2> /var/log/async-errors.log || true
-
-# Instala o pacote promise-lua, para programação com Promises
-RUN luarocks install promise-lua > /dev/null 2> /var/log/promise-lua-errors.log || true
-
-# Instala o pacotelpeg, para programação com Promises
-RUN luarocks install lpeg > /dev/null 2> /var/log/lpeg-errors.log || true
-
-# Instala dependencias para IA
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install cmake && \
-    rm -rf /var/lib/apt/lists/*
-
-# Instala o cwrap do torch
-RUN git clone https://github.com/torch/cwrap.git \
-    && cd cwrap \
-    && luarocks make rocks/cwrap-scm-1.rockspec
-
-# Instala o path do torch
-RUN luarocks install --server=https://luarocks.org/dev paths > /dev/null 2> /var/log/paths-errors.log || true
-
-# Instala o torch do torch
-RUN luarocks install --server=https://luarocks.org/dev torch > /dev/null 2> /var/log/torch-errors.log || true
-
-# Remove arquivos desnecessários do sistema
-RUN rm -rf /var/lib/apt/lists/* && \
-    apt-get autoremove -y
-
-# Define o diretório que será usado como volume
-VOLUME ["/workspace"]
