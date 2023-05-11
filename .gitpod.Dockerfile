@@ -117,8 +117,8 @@ RUN luarocks install lua-gl > /dev/null 2> /var/log/lua-gl-errors.log || true
 RUN luarocks install lgi > /dev/null 2> /var/log/lgi-errors.log || true
 
 # Instala o Love2D
-RUN apt-get update && \
-    apt-get install -y love
+# RUN apt-get update && \
+#     apt-get install -y love
 
 # Instala o openresty e o nginx sem recomendações adicionais
 RUN apt-get update && \
