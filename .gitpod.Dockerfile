@@ -108,13 +108,13 @@ RUN sudo apt-get update && \
 #     && cd ..
 
 # Instala a biblioteca LuaGL
-RUN luarocks install opengl
+RUN luarocks install opengl > /dev/null 2> /var/log/opengl-errors.log || true
 
 # Instala a biblioteca LuaGL
-RUN luarocks install lua-gl
+RUN luarocks install lua-gl > /dev/null 2> /var/log/lua-gl-errors.log || true
 
 # Instala a biblioteca lgi
-RUN luarocks install lgi
+RUN luarocks install lgi > /dev/null 2> /var/log/lgi-errors.log || true
 
 # Instala o Love2D
 RUN add-apt-repository -y ppa:bartbes/love-stable && \
