@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install unzip libreadline-dev libreadline8 wget tree lua5.4 liblua5.4-0 liblua5.4-dev liblua5.4-0-dbg libtool-bin pkg-config libc6 libc6-dev && \
+    apt-get -y install unzip libreadline-dev libreadline8 wget tree lua5.4 liblua5.4-0 liblua5.4-dev liblua5.4-0-dbg libtool-bin pkg-config libc6 libc6-dev dh-lua && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO
