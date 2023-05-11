@@ -51,14 +51,15 @@ RUN apt-get update && \
 ENV LUA_PATH="/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;;"
 ENV LUA_CPATH="/usr/local/lib/lua/5.4/?.so;/usr/local/lib/lua/5.4/loadall.so;;"
 
+# Instalação do LuaRocks 3.9.2
 RUN apt-get update && \
     wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz && \
     # extrai o conteúdo do arquivo tar.gz
     tar zxpf luarocks-3.9.2.tar.gz && \
     # entra no diretório luarocks-3.9.2
     cd luarocks-3.9.2 && \
-    # configura a compilação com o diretório /usr/include/lua5.4.4 incluído
-    ./configure --with-lua-include=/usr/include/lua5.4.4 && \
+    # configura a compilação com a detecção automática do Lua
+    ./configure --with-lua-include=/usr/local/include && \
     # compila e instala o LuaRocks 3.9.2
     make && \
     make install && \
