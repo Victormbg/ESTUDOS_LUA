@@ -1,5 +1,5 @@
-# Define a imagem base como Ubuntu 20.04
-FROM ubuntu:20.04
+# Define a imagem base como Ubuntu 20.10
+FROM ubuntu:20.10
 
 # Define o timezone padrão
 ENV TZ=America/Sao_Paulo
