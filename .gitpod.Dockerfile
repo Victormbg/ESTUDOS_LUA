@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install unzip libreadline-dev libreadline8 tree && \
+    apt-get -y install unzip libreadline-dev libreadline8 wget tree && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO
@@ -27,7 +27,7 @@ ENV PATH="${PATH}:$(which git)"
 
 # Instalação do Lua 5.4.4
 RUN apt-get update && \
-    apt-get install -y build-essential wget && \
+    apt-get install -y build-essential && \
     # baixa o arquivo tar.gz do Lua 5.4.4
     wget https://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     # extrai o conteúdo do arquivo tar.gz
@@ -44,7 +44,6 @@ RUN apt-get update && \
     cd .. && \
     # remove o diretório lua-5.4.4
     rm -rf lua-5.4.4 && \
-    apt-get purge -y build-essential wget && \
     apt-get autoremove -y && \
     apt-get clean
 
