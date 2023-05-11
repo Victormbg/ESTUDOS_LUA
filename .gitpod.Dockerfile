@@ -68,8 +68,8 @@ RUN apt-get update && \
     # remove o arquivo tar.gz e o diretório luarocks-3.9.2
     rm -rf luarocks-3.9.2.tar.gz luarocks-3.9.2
 
-# Instala o LuaJIT
-RUN apt-get update && apt-get install -y luajit libpcre3-dev
+# Instala o LuaJIT e openresty/luajit2
+RUN apt-get update && apt-get install -y luajit luajit2 libpcre3-dev
 
 # Instala o OpenSSL e o M4 (necessário para o pacote cqueues)
 RUN apt-get update && apt-get install -y libssl-dev m4
@@ -117,8 +117,7 @@ RUN luarocks install lua-gl > /dev/null 2> /var/log/lua-gl-errors.log || true
 RUN luarocks install lgi > /dev/null 2> /var/log/lgi-errors.log || true
 
 # Instala o Love2D
-RUN add-apt-repository -y ppa:bartbes/love-stable && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y love
 
 # Instala o openresty e o nginx sem recomendações adicionais
