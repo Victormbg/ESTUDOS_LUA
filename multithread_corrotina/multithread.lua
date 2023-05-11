@@ -1,5 +1,5 @@
 -- Função que será executada em paralelo
-function minha_corrotina()
+local function minha_corrotina()
     print("Iniciando corrotina")
 
     -- Aguarda 1 segundo usando o comando "os.execute" do sistema operacional
