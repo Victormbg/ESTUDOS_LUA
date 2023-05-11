@@ -15,7 +15,9 @@ RUN apt-get update && apt-get -y upgrade && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO
-RUN apt-get install build-essential libgl1-mesa-dev libdevil-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libopenal-dev libalut-dev libvorbis-dev libphysfs-dev
+RUN apt-get update && apt-get -y upgrade && \
+    apt-get -y install libdevil-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libopenal-dev libalut-dev libvorbis-dev libphysfs-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 # Instala o git
 RUN apt-get update && apt-get install -y git
