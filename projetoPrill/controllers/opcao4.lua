@@ -1,5 +1,5 @@
 -- importando os módulos base64 e hexTOtext
-local model = require "init".model
+local jsonANDyaml = require "model.jsonANDyaml"
 
 local function clearConsole()
     if os.getenv("OS") == "Windows_NT" then -- Windows
@@ -22,7 +22,7 @@ local function opcao4()
     end
 
     -- Convertendo YAML em JSON
-    local ok, jsonString = pcall(model.jsonANDyaml.yamlToJson, yamlString)
+    local ok, jsonString = pcall(jsonANDyaml.yamlToJson, yamlString)
     if not ok then
         io.write("Erro ao converter YAML em JSON\n")
         return

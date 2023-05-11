@@ -1,5 +1,5 @@
 -- importando os módulos base64 e hexTOtext
-local model = require "init".model
+local hexTotext = require "model.hexTotext"
 
 local function clearConsole()
     if os.getenv("OS") == "Windows_NT" then -- Windows
@@ -16,7 +16,7 @@ local function opcao2()
     io.write("Digite o texto hex: ")
     local textoHex = io.read()
     if #textoHex > 0 then
-        local ok, textoDecodificado = pcall(model.hexTotext.dec, textoHex)
+        local ok, textoDecodificado = pcall(hexTotext.dec, textoHex)
         if ok then
             -- Limpar Terminal
             clearConsole()

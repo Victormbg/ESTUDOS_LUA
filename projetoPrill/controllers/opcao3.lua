@@ -1,5 +1,5 @@
 -- importando os módulos base64 e hexTOtext
-local model = require "init".model
+local jsonANDyaml = require "model.jsonANDyaml"
 
 local function clearConsole()
     if os.getenv("OS") == "Windows_NT" then -- Windows
@@ -18,7 +18,7 @@ local function opcao3()
     -- verificando se o usuário digitou algo
     if #jsonString > 0 then
         -- convertendo o JSON para YAML e exibindo o resultado
-        local ok, yamlString = pcall(model.jsonANDyaml.jsonToYaml, jsonString)
+        local ok, yamlString = pcall(jsonANDyaml.jsonToYaml, jsonString)
         if ok then
             -- Limpar Terminal
             clearConsole()

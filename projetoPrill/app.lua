@@ -1,4 +1,7 @@
-local controller = require "init".controller
+local opcao1 = require "controllers.opcao1"
+local opcao2 = require "controllers.opcao2"
+local opcao3 = require "controllers.opcao3"
+local opcao4 = require "controllers.opcao4"
 
 local function main()
   print("PROGRAMA PRILL - ICATU")
@@ -18,13 +21,13 @@ local function main()
     local opcao = io.read()
     -- verificando a opção escolhida
     if opcao == "1" then
-      controller.opcao1()
+      opcao1()
     elseif opcao == "2" then
-      controller.opcao2()
+      opcao2()
     elseif opcao == "3" then
-      controller.opcao3()
+      opcao3()
     elseif opcao == "4" then
-      controller.opcao4()
+      opcao4()
     elseif opcao == "5" then
       -- encerrando o programa
       break

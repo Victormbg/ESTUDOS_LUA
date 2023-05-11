@@ -1,5 +1,5 @@
 -- importando os módulos base64 e hexTOtext
-local model = require "init".model
+local base64 = require "model.base64"
 
 local function clearConsole()
     if os.getenv("OS") == "Windows_NT" then -- Windows
@@ -21,7 +21,7 @@ local function opcao1()
         return
     end
     -- decodificando o texto base64 e exibindo o resultado
-    local ok, textoDecodificado = pcall(model.base64.decode, textoBase64)
+    local ok, textoDecodificado = pcall(base64.decode, textoBase64)
     if not ok then
         io.write("Erro ao decodificar texto Base64: ", textoDecodificado, "\n")
         return
