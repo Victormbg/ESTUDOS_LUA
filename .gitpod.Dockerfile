@@ -100,8 +100,8 @@ curl lsb-release \
 # Dependências de compilação em geral
 perl make \
 # Depuração de pacotes de rede
-lsof &&
-rm -rf /var/lib/apt/lists/*
+lsof \
+&& rm -rf /var/lib/apt/lists/*
 
 # Variáveis de ambiente para a instalação de dependências
 ENV CRYPTO_DIR=/usr/lib/
