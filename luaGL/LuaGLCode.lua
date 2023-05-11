@@ -5,9 +5,11 @@ require("iupluacd")
 
 LGL = require("lua-gl")
 
-cnvobj = LGL.new{ grid_x = 40, grid_y = 40, width = 600, height = 300, gridVisibility = true }
+local cnvobj = LGL.new{ grid_x = 40, grid_y = 40, width = 600, height = 300, gridVisibility = true }
 
-dlg = iup.dialog{ 
+local iup = nil
+
+local dlg = iup.dialog{ 
     iup.vbox{
         iup.label{title = "----------------Canvas---------------"},
         cnvobj.cnv,

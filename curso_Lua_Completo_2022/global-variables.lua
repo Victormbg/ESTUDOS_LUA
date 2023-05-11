@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 section("bloco/escopo global")
 local numero = 10

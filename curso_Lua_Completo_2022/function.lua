@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 section("void function")
 local function show(msg)

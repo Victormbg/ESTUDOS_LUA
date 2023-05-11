@@ -1,4 +1,4 @@
-require "utils"
+local section, write = require("utils")
 
 section "error function"
 io.write "Digite um valor: "

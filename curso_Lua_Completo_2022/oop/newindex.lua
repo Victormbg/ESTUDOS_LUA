@@ -1,4 +1,4 @@
-require "utils"
+local section, write = require("utils")
 
 local mt = {}
 local frutas = {"maçã", "banana", "sorvete"}

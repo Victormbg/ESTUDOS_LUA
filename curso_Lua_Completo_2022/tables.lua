@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 section("tables: listas e arrays")
 local fruits = {"maçã", "banana", "uva", "melância"}

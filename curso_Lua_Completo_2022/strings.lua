@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 section("como criar uma string")
 local hello = "Hello World"

@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 section("numbers")
 local primeiroNumero = 1
@@ -34,7 +34,7 @@ write("Floor: ", math.floor(numeroExemplo))
 write("Floor negativo: ", math.floor(-numeroExemplo))
 write("Ceil: ", math.ceil(numeroExemplo))
 write("Ceil negativo: ", math.ceil(numeroExemplo))
-write("Pow: ", math.pow(2, 5)) -- utilizado apenas no lua 5.2 e luajit
+write("2 elevado a 5 é ", 2^5, "\n") -- OBSOLETO: Utilize o operador ^ ao invés da função math.pow
 write("Sqrt: ", math.sqrt(raizExemplo))
 write("Min: ", math.min(1, 2, 3, 4, 5, 6, 7))
 write("Max: ", math.max(1, 2, 3, 4, 5, 6, 7))

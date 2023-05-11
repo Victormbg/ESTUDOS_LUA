@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 section("relacionais")
 write(string.format("1 maior que 2: %s", 1 > 2)) -- vai retonar booleano

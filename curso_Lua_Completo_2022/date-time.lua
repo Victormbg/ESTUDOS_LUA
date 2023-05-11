@@ -1,4 +1,4 @@
-require "utils"
+local section, write = require("utils")
 
 section "os.time"
 local time = os.time()

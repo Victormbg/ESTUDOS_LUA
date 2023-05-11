@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 section("DataTypes")
 local texto = type("Hello World")

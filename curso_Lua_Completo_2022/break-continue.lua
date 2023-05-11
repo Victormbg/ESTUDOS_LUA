@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 COUNT = 1
 

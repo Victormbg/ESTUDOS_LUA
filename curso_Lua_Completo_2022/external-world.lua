@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 io.write("Insira seu nome: ")
 local nome = io.read() -- vai ler strings

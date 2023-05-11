@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install build-essential wget unzip libreadline-dev libreadline8 && \
+    apt-get -y install build-essential wget unzip libreadline-dev libreadline8 tree && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO

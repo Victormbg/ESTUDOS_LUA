@@ -1,8 +1,5 @@
 {
-    "Lua.diagnostics.globals": [
-        "await"
-    ],
-    "Lua.runtime.version": "Lua 5.3",
+    "Lua.runtime.version": "Lua 5.4",
     "Lua.runtime.special": {
         "love.filesystem.load": "loadfile"
     },

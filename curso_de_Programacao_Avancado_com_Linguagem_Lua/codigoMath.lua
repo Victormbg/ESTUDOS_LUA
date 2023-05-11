@@ -7,9 +7,9 @@ io.write("O arredondamento de 10.5055 para cima é ", math.ceil(10.5055), "\n")
 -- Square root: calcula a raiz quadrada do número.
 io.write("A raiz quadrada de 16 é ", math.sqrt(16), "\n")
 
--- Power: calcula a potência de um número.
-io.write("10 elevado a 2 é ", math.pow(10, 2), "\n")
-io.write("100 elevado a 0.5 é ", math.pow(100, 0.5), "\n")
+-- Power: calcula a potência de um número. O "math.pow" esta depreciado
+io.write("10 elevado a 2 é ", 10^2, "\n")
+io.write("100 elevado a 0.5 é ", 100^0.5, "\n")
 
 -- Absolute: retorna o valor absoluto de um número.
 io.write("O valor absoluto de -10 é ", math.abs(-10), "\n")

@@ -1,4 +1,4 @@
-require("utils")
+local section, write = require("utils")
 
 -- variavel global
 COUNT = 1

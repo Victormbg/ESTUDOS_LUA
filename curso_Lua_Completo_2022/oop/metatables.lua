@@ -1,4 +1,4 @@
-require "utils"
+local section, write = require("utils")
 
 section"metatables e metamethods"
 section "__index"

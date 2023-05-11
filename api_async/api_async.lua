@@ -29,9 +29,8 @@ end
 local async_main = async(function()
     local rj_promise = get_state_data_async("RJ")
     local sp_promise = get_state_data_async("SP")
-
-    local states_data = await(Promise.all({rj_promise, sp_promise}))
-
+    local await = nil
+    local states_data = await(Promise.all({ rj_promise, sp_promise }))
     -- Imprimir informações sobre os estados
     print("Estado RJ:")
     print("  Estado: " .. states_data[1].nome)

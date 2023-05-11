@@ -1,3 +1,5 @@
+local ffi = require("ffi")
+
 -- Inclui a biblioteca DynASM
 local dynasm = require("dynasm")
 
