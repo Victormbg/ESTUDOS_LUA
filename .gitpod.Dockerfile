@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install unzip libreadline-dev libreadline8 wget tree && \
+    apt-get -y install unzip libreadline-dev libreadline8 wget tree liblua5.4-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO
@@ -87,7 +87,7 @@ RUN apt-get update && \
 
 # Instala dependências necessárias para compilar o LuaGL
 RUN sudo apt-get update && \
-    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.4-dev freeglut3-dev libgirepository1.0-dev software-properties-common gobject-introspection
+    sudo apt-get install -y build-essential libgl1-mesa-dev freeglut3-dev libgirepository1.0-dev software-properties-common gobject-introspection
 
 # Baixando e instalando o CD
 # RUN curl -L https://sourceforge.net/projects/canvasdraw/files/5.14/Linux%20Libraries/cd-5.14_Linux50_64_lib.tar.gz -o cd-5.14_Linux50_64_lib.tar.gz \
