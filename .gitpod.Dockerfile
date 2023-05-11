@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 
 # Instala as ferramentas necessárias para compilar o Lua
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install build-essential wget unzip libreadline-dev libreadline8 tree && \
+    apt-get -y install unzip libreadline-dev libreadline8 tree && \
     rm -rf /var/lib/apt/lists/*
 
 # Instala bibliotecas gráficas necessárias para a execução do Love2D - AINDA NÃO FUNCIONANDO
@@ -25,29 +25,32 @@ RUN apt-get update && apt-get install -y git
 # Define a variável PATH incluindo o caminho para o git
 ENV PATH="${PATH}:$(which git)"
 
-# Instalação do Lua 5.3.6
+# Instalação do Lua 5.4.4
 RUN apt-get update && \
-    apt-get install -y liblua5.3-dev && \
-    # baixa o arquivo tar.gz do Lua 5.3.6
-    wget https://www.lua.org/ftp/lua-5.3.6.tar.gz && \
+    apt-get install -y build-essential wget && \
+    # baixa o arquivo tar.gz do Lua 5.4.4
+    wget https://www.lua.org/ftp/lua-5.4.4.tar.gz && \
     # extrai o conteúdo do arquivo tar.gz
-    tar -xzf lua-5.3.6.tar.gz && \
+    tar -xzf lua-5.4.4.tar.gz && \
     # remove o arquivo tar.gz
-    rm lua-5.3.6.tar.gz && \
-    # entra no diretório lua-5.3.6
-    cd lua-5.3.6 && \
-    # compila o Lua 5.3.6 com o diretório /usr/include/lua5.3 incluído
-    make linux MYCFLAGS=-I/usr/include/lua5.3 && \
-    # instala o Lua 5.3.6
+    rm lua-5.4.4.tar.gz && \
+    # entra no diretório lua-5.4.4
+    cd lua-5.4.4 && \
+    # compila o Lua 5.4.4
+    make linux && \
+    # instala o Lua 5.4.4
     make install && \
-    # sai do diretório lua-5.3.6
+    # sai do diretório lua-5.4.4
     cd .. && \
-    # remove o diretório lua-5.3.6
-    rm -rf lua-5.3.6
+    # remove o diretório lua-5.4.4
+    rm -rf lua-5.4.4 && \
+    apt-get purge -y build-essential wget && \
+    apt-get autoremove -y && \
+    apt-get clean
 
 # Adiciona as variáveis de ambiente LUA_PATH e LUA_CPATH
-ENV LUA_PATH="/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.lua;;"
-ENV LUA_CPATH="/usr/local/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/loadall.so;;"
+ENV LUA_PATH="/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;;"
+ENV LUA_CPATH="/usr/local/lib/lua/5.4/?.so;/usr/local/lib/lua/5.4/loadall.so;;"
 
 # Baixa o arquivo tar.gz do LuaRocks 3.9.2
 RUN apt-get update && \
@@ -56,8 +59,8 @@ RUN apt-get update && \
     tar zxpf luarocks-3.9.2.tar.gz && \
     # entra no diretório luarocks-3.9.2
     cd luarocks-3.9.2 && \
-    # configura a compilação com o diretório /usr/include/lua5.3 incluído
-    ./configure --with-lua-include=/usr/include/lua5.3 && \
+    # configura a compilação com o diretório /usr/include/lua5.4 incluído
+    ./configure --with-lua-include=/usr/include/lua5.4 && \
     # compila e instala o LuaRocks 3.9.2
     make && \
     make install && \
@@ -86,7 +89,7 @@ RUN apt-get update && \
 
 # Instala dependências necessárias para compilar o LuaGL
 RUN sudo apt-get update && \
-    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.3-dev freeglut3-dev libgirepository1.0-dev software-properties-common gobject-introspection
+    sudo apt-get install -y build-essential libgl1-mesa-dev liblua5.4-dev freeglut3-dev libgirepository1.0-dev software-properties-common gobject-introspection
 
 # Baixando e instalando o CD
 # RUN curl -L https://sourceforge.net/projects/canvasdraw/files/5.14/Linux%20Libraries/cd-5.14_Linux50_64_lib.tar.gz -o cd-5.14_Linux50_64_lib.tar.gz \
@@ -184,6 +187,22 @@ RUN luarocks install promise-lua > /dev/null 2> /var/log/promise-lua-errors.log 
 
 # Instala o pacotelpeg, para programação com Promises
 RUN luarocks install lpeg > /dev/null 2> /var/log/lpeg-errors.log || true
+
+# Instala dependencias para IA
+RUN apt-get update && apt-get -y upgrade && \
+    apt-get -y install cmake && \
+    rm -rf /var/lib/apt/lists/*
+
+# Instala o cwrap do torch
+RUN git clone https://github.com/torch/cwrap.git \
+    && cd cwrap \
+    && luarocks make rocks/cwrap-scm-1.rockspec
+
+# Instala o path do torch
+RUN luarocks install --server=https://luarocks.org/dev paths > /dev/null 2> /var/log/paths-errors.log || true
+
+# Instala o torch do torch
+RUN luarocks install --server=https://luarocks.org/dev torch > /dev/null 2> /var/log/torch-errors.log || true
 
 # Remove arquivos desnecessários do sistema
 RUN rm -rf /var/lib/apt/lists/* && \
