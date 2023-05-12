@@ -130,8 +130,7 @@ RUN git clone https://github.com/torch/cwrap.git \
     && luarocks make rocks/cwrap-scm-1.rockspec
 
 # Instala o Love2D
- RUN apt-get update && \
-     apt-get install -y love
+ RUN apt-get update && apt-get install -y love
 
 # Instala pacotes via luarocks
 RUN luarocks install luaossl
