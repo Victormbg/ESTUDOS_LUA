@@ -161,11 +161,13 @@ RUN luarocks install inspect > /dev/null
 RUN luarocks install penlight > /dev/null
 RUN luarocks install luasocket > /dev/null
 # RUN luarocks install async > /dev/null
-RUN luarocks install lua_pack > /dev/null
-RUN luarocks install lua-resty-session > /dev/null
-RUN luarocks install lua-resty-session > /dev/null
+# RUN luarocks install lua_pack > /dev/null
+# RUN luarocks install lua-resty-session > /dev/null
+# RUN luarocks install lua-ffi-zlib > /dev/null
+RUN luarocks install lua-resty-openssl > /dev/null
 RUN luarocks install lua-resty-jwt > /dev/null
 RUN luarocks install lua-resty-openidc > /dev/null
+RUN luarocks install lua-resty-string > /dev/null
 RUN luarocks install luatz > /dev/null
 RUN luarocks install lua-cmsgpack > /dev/null
 RUN luarocks install lyaml > /dev/null
