@@ -142,7 +142,12 @@ RUN luarocks install bcrypt > /dev/null
 RUN luarocks install luasec > /dev/null
 RUN luarocks install lua-term > /dev/null
 RUN luarocks install dkjson > /dev/null
-RUN luarocks install lapis-console > /dev/null
+RUN luarocks install loadkit > /dev/null
+RUN luarocks install ansicolors > /dev/null
+RUN luarocks install argparse > /dev/null
+RUN luarocks install etlua > /dev/null
+RUN luarocks install date > /dev/null
+RUN luarocks install pgmoon > /dev/null
 RUN luarocks install inspect > /dev/null
 RUN luarocks install penlight > /dev/null
 RUN luarocks install luasocket > /dev/null
