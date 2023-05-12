@@ -130,13 +130,13 @@ RUN git clone https://github.com/torch/cwrap.git \
     && luarocks make rocks/cwrap-scm-1.rockspec
 
 # Instala o Love2D
-RUN apt-get clean \
-    && apt-get autoclean \
-    && apt-get autoremove \
-    && dpkg --configure -a \
-    && apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y love
+# RUN apt-get clean \
+#    && apt-get autoclean \
+#    && apt-get autoremove \
+#    && dpkg --configure -a \
+#    && apt-get update \
+#    && apt-get upgrade -y \
+#    && apt-get install -y love
     
 # Instala pacotes via luarocks
 RUN luarocks install luaossl
@@ -160,7 +160,7 @@ RUN luarocks install pgmoon > /dev/null
 RUN luarocks install inspect > /dev/null
 RUN luarocks install penlight > /dev/null
 RUN luarocks install luasocket > /dev/null
-RUN luarocks install async > /dev/null
+# RUN luarocks install async > /dev/null
 RUN luarocks install lua-resty-session > /dev/null
 RUN luarocks install lua-resty-jwt > /dev/null
 RUN luarocks install lua-resty-openidc > /dev/null
