@@ -15,7 +15,6 @@ RUN apt-get update \
         libreadline8 \
         wget \
         tree \
-        lua5.4 \
         liblua5.4-0 \
         liblua5.4-dev \
         liblua5.4-0-dbg \
