@@ -130,32 +130,32 @@ RUN git clone https://github.com/torch/cwrap.git \
 
 # Instala pacotes via luarocks
 # RUN luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR \
-RUN luarocks install opengl > /dev/null \
-&& luarocks install lua-gl > /dev/null \
-&& luarocks install lgi > /dev/null \
-&& luarocks install http > /dev/null \
-&& luarocks install lua-cjson > /dev/null \
-&& luarocks install lapis > /dev/null \
-&& luarocks install moonscript > /dev/null \
-&& luarocks install bcrypt > /dev/null \
-&& luarocks install luasec > /dev/null \
-&& luarocks install lua-term > /dev/null \
-&& luarocks install dkjson > /dev/null \
-&& luarocks install lapis-console > /dev/null \
-&& luarocks install inspect > /dev/null \
-&& luarocks install penlight > /dev/null \
-&& luarocks install luasocket > /dev/null \
-&& luarocks install async > /dev/null \
-&& luarocks install lua-resty-session > /dev/null \
-&& luarocks install lua-resty-jwt > /dev/null \
-&& luarocks install lua-resty-openidc > /dev/null \
-&& luarocks install luatz > /dev/null \
-&& luarocks install lua-cmsgpack > /dev/null \
-&& luarocks install lyaml > /dev/null \
-&& luarocks install promise-lua > /dev/null \
-&& luarocks install lpeg > /dev/null \
-&& luarocks install --server=https://luarocks.org/dev paths > /dev/null \
-&& luarocks install --server=https://luarocks.org/dev torch > /dev/null
+RUN luarocks install opengl > /dev/null 
+RUN luarocks install lua-gl > /dev/null 
+RUN luarocks install lgi > /dev/null 
+RUN luarocks install http > /dev/null
+RUN luarocks install lua-cjson > /dev/null
+RUN luarocks install lapis > /dev/null
+RUN luarocks install moonscript > /dev/null
+RUN luarocks install bcrypt > /dev/null
+RUN luarocks install luasec > /dev/null
+RUN luarocks install lua-term > /dev/null
+RUN luarocks install dkjson > /dev/null
+RUN luarocks install lapis-console > /dev/null
+RUN luarocks install inspect > /dev/null
+RUN luarocks install penlight > /dev/null
+RUN luarocks install luasocket > /dev/null
+RUN luarocks install async > /dev/null
+RUN luarocks install lua-resty-session > /dev/null
+RUN luarocks install lua-resty-jwt > /dev/null
+RUN luarocks install lua-resty-openidc > /dev/null
+RUN luarocks install luatz > /dev/null
+RUN luarocks install lua-cmsgpack > /dev/null
+RUN luarocks install lyaml > /dev/null
+RUN luarocks install promise-lua > /dev/null
+RUN luarocks install lpeg > /dev/null
+RUN luarocks install --server=https://luarocks.org/dev paths > /dev/null
+RUN luarocks install --server=https://luarocks.org/dev torch > /dev/null
 
 # Remove arquivos desnecessários do sistema
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
