@@ -102,9 +102,13 @@ perl make \
 lsof \
 && rm -rf /var/lib/apt/lists/*
 
-# Variáveis de ambiente para a instalação de dependências
+# Variáveis de ambiente para a instalação da biblioteca "luacrypto" (que depende do OpenSSL)
 ENV CRYPTO_DIR=/usr/lib/
 ENV CRYPTO_INCDIR=/usr/include/
+
+# Variáveis de ambiente para a instalação do OpenSSL (necessário para a biblioteca "luacrypto")
+ENV OPENSSL_DIR=/usr/lib/x86_64-linux-gnu/
+ENV OPENSSL_INCDIR=/usr/include/
 
 # Instala o openresty e o nginx
 RUN apt-get update \
@@ -114,9 +118,6 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y --no-install-recommends openresty nginx \
     && rm -rf /var/lib/apt/lists/*
-
-# Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
-ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
 
 # Instala dependencias para IA
 RUN apt-get update && apt-get -y upgrade \
@@ -129,7 +130,8 @@ RUN git clone https://github.com/torch/cwrap.git \
     && luarocks make rocks/cwrap-scm-1.rockspec
 
 # Instala pacotes via luarocks
-RUN luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR
+# RUN luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR
+RUN luarocks install luacrypto OPENSSL_DIR=/usr/lib/x86_64-linux-gnu/ OPENSSL_INCDIR=/usr/include/
 RUN luarocks install opengl > /dev/null 
 RUN luarocks install lua-gl > /dev/null 
 # RUN luarocks install lgi > /dev/null 
@@ -157,13 +159,14 @@ RUN luarocks install lpeg > /dev/null
 RUN luarocks install --server=https://luarocks.org/dev paths > /dev/null
 RUN luarocks install --server=https://luarocks.org/dev torch > /dev/null
 
+# Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
+ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
+
 # Remove arquivos desnecessários do sistema
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
-
-
 # Instala o Love2D
 # RUN apt-get update && \
 #     apt-get install -y love
