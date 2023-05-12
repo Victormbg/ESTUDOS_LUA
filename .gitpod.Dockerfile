@@ -142,7 +142,7 @@ RUN git clone https://github.com/torch/cwrap.git \
 RUN luarocks install luaossl
 RUN luarocks install opengl > /dev/null 
 RUN luarocks install lua-gl > /dev/null 
-# RUN luarocks install lgi > /dev/null 
+RUN luarocks install lgi > /dev/null 
 RUN luarocks install http > /dev/null
 RUN luarocks install lua-cjson > /dev/null
 RUN luarocks install lapis > /dev/null
@@ -173,8 +173,8 @@ RUN luarocks install lua-cmsgpack > /dev/null
 RUN luarocks install lyaml > /dev/null
 RUN luarocks install promise-lua > /dev/null
 RUN luarocks install lpeg > /dev/null
-RUN luarocks install --server=https://luarocks.org/dev paths > /dev/null
-RUN luarocks install --server=https://luarocks.org/dev torch > /dev/null
+RUN luarocks install --server=https://luarocks.org/dev paths
+RUN luarocks install --server=https://luarocks.org/dev torch
 
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
