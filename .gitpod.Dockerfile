@@ -89,10 +89,10 @@ RUN apt-get update \
     && apt-get clean
 
 RUN apt-get update && apt-get install -y \
-# LuaJIT e OpenResty/luajit2
+# LuaJIT
 luajit libpcre3-dev \
 # OpenSSL, M4 (para pacote cqueues), e libyaml-dev (para pacote lyaml)
-libssl-dev m4 libyaml-dev \
+libssl-dev m4 libyaml-dev libssl3 libssl-doc \
 # Dependências necessárias para compilar o LuaGL
 build-essential libgl1-mesa-dev freeglut3-dev libgirepository1.0-dev software-properties-common gobject-introspection \
 # Outras bibliotecas essenciais
