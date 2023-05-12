@@ -108,8 +108,8 @@ ENV CRYPTO_DIR=/usr/lib/
 ENV CRYPTO_INCDIR=/usr/include/
 
 # Instala o openresty e o nginx
-RUN wget -O - https://openresty.org/package/pubkey.gpg | apt-key add - \
-    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/openresty.gpg] http://openresty.org/package/ubuntu jammy main" | tee /etc/apt/sources.list.d/openresty.list > /dev/null \
+RUN wget -qO - https://openresty.org/package/pubkey.gpg | apt-key add - \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/openresty.gpg] http://openresty.org/package/ubuntu jammy main" > /etc/apt/sources.list.d/openresty.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends openresty nginx \
     && rm -rf /var/lib/apt/lists/*
