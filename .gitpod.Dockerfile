@@ -142,7 +142,7 @@ RUN git clone https://github.com/torch/cwrap.git \
 RUN luarocks install luaossl
 RUN luarocks install opengl > /dev/null 
 RUN luarocks install lua-gl > /dev/null 
-RUN luarocks install lgi > /dev/null 
+# RUN luarocks install lgi > /dev/null 
 RUN luarocks install http > /dev/null
 RUN luarocks install lua-cjson > /dev/null
 RUN luarocks install lapis > /dev/null
