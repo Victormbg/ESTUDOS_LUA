@@ -129,8 +129,8 @@ RUN git clone https://github.com/torch/cwrap.git \
     && luarocks make rocks/cwrap-scm-1.rockspec
 
 # Instala pacotes via luarocks
-RUN luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR \
-&& luarocks install opengl > /dev/null \
+# RUN luarocks install luacrypto OPENSSL_DIR=$CRYPTO_DIR OPENSSL_INCDIR=$CRYPTO_INCDIR \
+RUN luarocks install opengl > /dev/null \
 && luarocks install lua-gl > /dev/null \
 && luarocks install lgi > /dev/null \
 && luarocks install http > /dev/null \
