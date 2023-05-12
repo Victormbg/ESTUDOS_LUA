@@ -129,6 +129,10 @@ RUN git clone https://github.com/torch/cwrap.git \
     && cd cwrap \
     && luarocks make rocks/cwrap-scm-1.rockspec
 
+# Instala o Love2D
+ RUN apt-get update && \
+     apt-get install -y love
+
 # Instala pacotes via luarocks
 RUN luarocks install luaossl
 RUN luarocks install opengl > /dev/null 
@@ -171,10 +175,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Define o diretório que será usado como volume
 VOLUME ["/workspace"]
-# Instala o Love2D
-# RUN apt-get update && \
-#     apt-get install -y love
-
 # Baixando e instalando o CD
 # RUN curl -L https://sourceforge.net/projects/canvasdraw/files/5.14/Linux%20Libraries/cd-5.14_Linux50_64_lib.tar.gz -o cd-5.14_Linux50_64_lib.tar.gz \
 #     && tar -xzvf cd-5.14_Linux50_64_lib.tar.gz --no-same-owner \
