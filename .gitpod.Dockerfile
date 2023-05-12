@@ -108,19 +108,19 @@ ENV CRYPTO_DIR=/usr/lib/
 ENV CRYPTO_INCDIR=/usr/include/
 
 # Instala o openresty e o nginx
-RUN curl -L https://openresty.org/package/pubkey.gpg | apt-key add - &&
-echo "deb http://openresty.org/package/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/openresty.list &&
-apt-get update &&
-apt-get install -y --no-install-recommends openresty nginx &&
-rm -rf /var/lib/apt/lists/*
+RUN curl -L https://openresty.org/package/pubkey.gpg | apt-key add - \
+    && echo "deb http://openresty.org/package/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/openresty.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends openresty nginx \
+    && rm -rf /var/lib/apt/lists/*
 
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
 
 # Instala dependencias para IA
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install cmake && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -y upgrade \
+    && apt-get -y install cmake \
+    && rm -rf /var/lib/apt/lists/*
 
 # Instala o cwrap do torch
 RUN git clone https://github.com/torch/cwrap.git \
