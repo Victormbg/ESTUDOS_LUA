@@ -173,8 +173,8 @@ RUN luarocks install lua-cmsgpack > /dev/null
 RUN luarocks install lyaml > /dev/null
 RUN luarocks install promise-lua > /dev/null
 RUN luarocks install lpeg > /dev/null
-RUN luarocks install --server=https://luarocks.org/dev paths
-RUN luarocks install --server=https://luarocks.org/dev torch
+# RUN luarocks install --server=https://luarocks.org/dev paths
+# RUN luarocks install --server=https://luarocks.org/dev torch
 
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
