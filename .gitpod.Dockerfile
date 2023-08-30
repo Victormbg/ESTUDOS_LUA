@@ -141,42 +141,42 @@ RUN set -e \
     && apt-get install -y love || { echo "Erro ao instalar o Love2D" >> /var/log/love-install.log; true; }
 
 # Instala pacotes via luarocks com log de erro e pulo em caso de falha
-RUN luarocks install luaossl || true &&
-luarocks install opengl > /dev/null || true &&
-luarocks install lua-gl > /dev/null || true &&
-luarocks install lgi > /dev/null || true &&
-luarocks install http > /dev/null || true &&
-luarocks install lua-cjson > /dev/null || true &&
-luarocks install lapis > /dev/null || true &&
-luarocks install moonscript > /dev/null || true &&
-luarocks install bcrypt > /dev/null || true &&
-luarocks install luasec > /dev/null || true &&
-luarocks install lua-term > /dev/null || true &&
-luarocks install dkjson > /dev/null || true &&
-luarocks install loadkit > /dev/null || true &&
-luarocks install ansicolors > /dev/null || true &&
-luarocks install argparse > /dev/null || true &&
-luarocks install etlua > /dev/null || true &&
-luarocks install date > /dev/null || true &&
-luarocks install pgmoon > /dev/null || true &&
-luarocks install inspect > /dev/null || true &&
-luarocks install penlight > /dev/null || true &&
-luarocks install luasocket > /dev/null || true &&
-luarocks install async > /dev/null || true &&
-luarocks install lua_pack > /dev/null || true &&
-luarocks install lua-resty-session > /dev/null || true &&
-luarocks install lua-ffi-zlib > /dev/null || true &&
-luarocks install lua-resty-openssl > /dev/null || true &&
-luarocks install lua-resty-jwt > /dev/null || true &&
-luarocks install lua-resty-openidc > /dev/null || true &&
-luarocks install lua-resty-string > /dev/null || true &&
-luarocks install luatz > /dev/null || true &&
-luarocks install lua-cmsgpack > /dev/null || true &&
-luarocks install lyaml > /dev/null || true &&
-luarocks install promise-lua > /dev/null || true &&
-luarocks install lpeg > /dev/null || true &&
-luarocks install --server=https://luarocks.org/dev paths || true &&
-luarocks install --server=https://luarocks.org/dev torch || true
+RUN luarocks install luaossl || true
+RUN luarocks install opengl > /dev/null || true
+RUN luarocks install lua-gl > /dev/null || true
+RUN luarocks install lgi > /dev/null || true 
+RUN luarocks install http > /dev/null || true
+RUN luarocks install lua-cjson > /dev/null || true 
+RUN luarocks install lapis > /dev/null || true 
+RUN luarocks install moonscript > /dev/null || true
+RUN luarocks install bcrypt > /dev/null || true 
+RUN luarocks install luasec > /dev/null || true
+RUN luarocks install lua-term > /dev/null || true
+RUN luarocks install dkjson > /dev/null || true 
+RUN luarocks install loadkit > /dev/null || true
+RUN luarocks install ansicolors > /dev/null || true
+RUN luarocks install argparse > /dev/null || true
+RUN luarocks install etlua > /dev/null || true
+RUN luarocks install date > /dev/null || true
+RUN luarocks install pgmoon > /dev/null || true
+RUN luarocks install inspect > /dev/null || true
+RUN luarocks install penlight > /dev/null || true
+RUN luarocks install luasocket > /dev/null || true
+RUN luarocks install async > /dev/null || true
+RUN luarocks install lua_pack > /dev/null || true
+RUN luarocks install lua-resty-session > /dev/null || true
+RUN luarocks install lua-ffi-zlib > /dev/null || true 
+RUN luarocks install lua-resty-openssl > /dev/null || true
+RUN luarocks install lua-resty-jwt > /dev/null || true 
+RUN luarocks install lua-resty-openidc > /dev/null || true
+RUN luarocks install lua-resty-string > /dev/null || true 
+RUN luarocks install luatz > /dev/null || true 
+RUN luarocks install lua-cmsgpack > /dev/null || true 
+RUN luarocks install lyaml > /dev/null || true 
+RUN luarocks install promise-lua > /dev/null || true
+RUN luarocks install lpeg > /dev/null || true 
+RUN luarocks install --server=https://luarocks.org/dev paths || true 
+RUN luarocks install --server=https://luarocks.org/dev torch || true
 
 # Define a variável de ambiente LAPIS_OPENRESTY como o caminho do openresty
 ENV LAPIS_OPENRESTY /usr/local/openresty/bin/openresty
