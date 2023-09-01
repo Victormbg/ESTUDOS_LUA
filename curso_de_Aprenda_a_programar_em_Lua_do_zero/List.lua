@@ -18,3 +18,21 @@ local list2 = {4, number, 9}
 print(number)
 print(list2[2])
 
+list = {"A", "B", "C"}
+
+print(table.concat(list, " - "))
+
+local list3 = {3, 1, 2, -1, 8, 6}
+
+table.sort(list3)
+
+print("\n")
+
+print(table.concat(list3, "\n"))
+
+print("\n")
+
+table.remove(list3, 1)
+
+for _, value in pairs(list3) do print(value) end
+
